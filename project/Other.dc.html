@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
 <style>
 body{margin:0}
+input[type=checkbox]{-webkit-appearance:none;appearance:none;box-sizing:border-box;flex:none;border:1.5px solid #8C7F78;border-radius:4px;background:#FFFFFF;display:inline-grid;place-content:center}
+input[type=checkbox]:checked{background:#BF0D3E;border-color:#BF0D3E}
+input[type=checkbox]:checked::after{content:'';width:4px;height:8px;margin-top:-2px;border:solid #FFFFFF;border-width:0 2px 2px 0;transform:rotate(45deg)}
 .oc-li{display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:8px;align-items:baseline;padding:8px 0;border-bottom:1px solid #EFE2E5}
 .oc-sub{grid-template-columns:56px minmax(0,1fr);padding-left:0}
 .oc-num{font-size:13px;font-weight:700;color:#BF0D3E}

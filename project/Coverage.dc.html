@@ -15,7 +15,7 @@ body{margin:0}
 </helmet>
 <section aria-labelledby="sec-cover" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
   <div style="display: flex; align-items: center; gap: 12px">
-    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">8</span>
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #BF0D3E; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">8</span>
     <h2 id="sec-cover" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Страховое покрытие</h2>
   </div>
 
@@ -31,7 +31,7 @@ body{margin:0}
 
   <div role="table" aria-label="Основные риски и опции" style="box-sizing: border-box; padding: 0; display: flex; flex-direction: column">
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 8px 0 6px">
-      <span style="font-size: 14px; font-weight: 700; color: #A0172F">8.1. Основные риски и опции</span>
+      <span style="font-size: 14px; font-weight: 700; color: #BF0D3E">8.1. Основные риски и опции</span>
       <span style="font-size: 13px; color: #6E6366">Итого по разделу: <b style="color: #1F1A1B; font-weight: 700">{{mainTotal}}</b></span>
     </div>
     <sc-for list="{{mainRows}}" as="r" hint-placeholder-count="2">
@@ -41,7 +41,7 @@ body{margin:0}
       </div>
     </sc-for>
     <sc-if value="{{hasOptions}}" hint-placeholder-val="{{ true }}">
-      <div style="padding: 10px 0 4px; border-top: 1px solid #EFE2E5; font-size: 11px; line-height: 1.3; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; color: #8A7479">Опции к рискам КАСКО / Ущерб · <span style="text-transform: none; letter-spacing: 0; color: #A0172F; font-weight: 700">Приложение № 7 к Правилам страхования ТС</span></div>
+      <div style="padding: 10px 0 4px; border-top: 1px solid #EFE2E5; font-size: 11px; line-height: 1.3; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; color: #8A7479">Опции к рискам КАСКО / Ущерб · <span style="text-transform: none; letter-spacing: 0; color: #BF0D3E; font-weight: 700">Приложение № 7 к Правилам страхования ТС</span></div>
       <sc-for list="{{optRows}}" as="r" hint-placeholder-count="3">
         <div role="row" style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.25fr) minmax(0, 0.8fr); column-gap: 16px; align-items: baseline; padding: 6px 0; border-top: 1px dashed #EFE2E5; font-size: 13px; line-height: 1.35">
           <div role="cell" style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-weight: 600">{{r.title}}</span><span style="font-size: 11px; line-height: 1.35; color: #6E6366">{{r.ref}}</span></div>
@@ -53,13 +53,13 @@ body{margin:0}
 
   <div role="table" aria-label="Дополнительные риски и опции" style="box-sizing: border-box; padding: 0; display: flex; flex-direction: column">
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 8px 0 6px">
-      <span style="font-size: 14px; font-weight: 700; color: #A0172F">8.2. Дополнительные риски и опции</span>
+      <span style="font-size: 14px; font-weight: 700; color: #BF0D3E">8.2. Дополнительные риски и опции</span>
       <span style="font-size: 13px; color: #6E6366">Итого по разделу: <b style="color: #1F1A1B; font-weight: 700">{{addTotal}}</b></span>
     </div>
     <sc-if value="{{hasAdd}}" hint-placeholder-val="{{ true }}">
       <sc-for list="{{addRows}}" as="r" hint-placeholder-count="3">
         <div role="row" style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.25fr) minmax(0, 0.8fr); column-gap: 16px; align-items: baseline; padding: 8px 0; border-top: 1px solid #EFE2E5; font-size: 13px; line-height: 1.35">
-          <div role="cell" style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="font-weight: 700">{{r.title}}</span><sc-if value="{{r.hasBadge}}" hint-placeholder-val="{{ false }}"><span style="padding: 1px 8px; border-radius: 999px; background: #A0172F; color: #FFFFFF; font-size: 11px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2px">{{r.badge}}</span></sc-if></div><sc-if value="{{r.hasDesc}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; line-height: 1.4; color: #3F3638">{{r.desc}}</span></sc-if><sc-if value="{{r.hasNote}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; line-height: 1.35; color: #1F1A1B"><span style="color: #6E6366">{{r.noteLabel}}</span> <b style="font-weight: 600">{{r.note}}</b></span></sc-if><span style="font-size: 11px; line-height: 1.35; color: #6E6366">{{r.ref}}</span></div>
+          <div role="cell" style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="font-weight: 700">{{r.title}}</span><sc-if value="{{r.hasBadge}}" hint-placeholder-val="{{ false }}"><span style="padding: 1px 8px; border-radius: 999px; background: #BF0D3E; color: #FFFFFF; font-size: 11px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2px">{{r.badge}}</span></sc-if></div><sc-if value="{{r.hasDesc}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; line-height: 1.4; color: #3F3638">{{r.desc}}</span></sc-if><sc-if value="{{r.hasNote}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; line-height: 1.35; color: #1F1A1B"><span style="color: #6E6366">{{r.noteLabel}}</span> <b style="font-weight: 600">{{r.note}}</b></span></sc-if><span style="font-size: 11px; line-height: 1.35; color: #6E6366">{{r.ref}}</span></div>
           <span role="cell">{{r.sum}}</span><span role="cell">{{r.type}}</span><span role="cell">{{r.fr}}</span><span role="cell" style="text-align: right; font-weight: 600; white-space: nowrap">{{r.prem}}</span>
         </div>
       </sc-for>

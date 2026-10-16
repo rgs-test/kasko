@@ -15,14 +15,14 @@ body{margin:0}
 </helmet>
 <section aria-labelledby="sec-pay" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
   <div style="display: flex; align-items: center; gap: 12px">
-    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">9</span>
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #BF0D3E; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">9</span>
     <h2 id="sec-pay" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Срок и порядок уплаты страховой премии</h2>
   </div>
 
   <div role="group" aria-labelledby="pay-mode" style="box-sizing: border-box; width: 100%; padding: 2px 16px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 20px; font-size: 13px; color: #2A2324; white-space: nowrap">
     <span id="pay-mode" style="color: #5A5052">Страховая премия уплачивается:</span>
-    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isOnce}}" onChange="{{pickOnce}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">единовременно</label>
-    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isInst}}" onChange="{{pickInst}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">в рассрочку</label>
+    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isOnce}}" onChange="{{pickOnce}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">единовременно</label>
+    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isInst}}" onChange="{{pickInst}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">в рассрочку</label>
     <sc-if value="{{isInst}}" hint-placeholder-val="{{ false }}">
       <span style="color: #6E6366">· {{instLabel}}</span>
     </sc-if>
@@ -34,7 +34,7 @@ body{margin:0}
         <div style="display: flex; flex-direction: column; gap: 2px">
           <span style="font-size: 12px; line-height: 1.3; color: #6E5A5F">Страховая премия</span>
           <span style="font-size: 22px; line-height: 1.2; font-weight: 700; color: #2A1F22; white-space: nowrap">{{onceSum}}</span>
-          <span style="font-size: 13px; line-height: 1.3; color: #4A3D40">уплатить до <b style="color: #A0172F; font-weight: 700">{{onceDate}}</b></span>
+          <span style="font-size: 13px; line-height: 1.3; color: #4A3D40">уплатить до <b style="color: #BF0D3E; font-weight: 700">{{onceDate}}</b></span>
         </div>
       </sc-if>
       <sc-if value="{{isInst}}" hint-placeholder-val="{{ false }}">
@@ -46,7 +46,7 @@ body{margin:0}
             <div role="row" style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); column-gap: 12px; align-items: baseline; padding: 6px 0; border-top: 1px solid #EFE2E5; font-size: 13px; line-height: 1.35">
               <span role="cell" style="font-weight: 600">{{r.label}}</span>
               <span role="cell" style="text-align: right; font-weight: 700; white-space: nowrap">{{r.sum}}</span>
-              <span role="cell" style="text-align: right; white-space: nowrap"><sc-if value="{{r.isFirst}}" hint-placeholder-val="{{ true }}"><span style="color: #A0172F; font-weight: 700">{{r.date}}</span></sc-if><sc-if value="{{r.isNext}}" hint-placeholder-val="{{ false }}"><span>{{r.date}}</span></sc-if></span>
+              <span role="cell" style="text-align: right; white-space: nowrap"><sc-if value="{{r.isFirst}}" hint-placeholder-val="{{ true }}"><span style="color: #BF0D3E; font-weight: 700">{{r.date}}</span></sc-if><sc-if value="{{r.isNext}}" hint-placeholder-val="{{ false }}"><span>{{r.date}}</span></sc-if></span>
             </div>
           </sc-for>
         </div>
@@ -56,7 +56,7 @@ body{margin:0}
     <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 6px">
       <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #4A4244; font-family: Arial, sans-serif">Если вы не полностью или вовремя не оплатите {{payWhat}}, Договор считается незаключенным, а защита не начнет действовать. Любые опоздавшие или неполные платежи признаются ошибочными и возвращаются.</p>
       <sc-if value="{{isInst}}" hint-placeholder-val="{{ false }}">
-        <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #4A4244; font-family: Arial, sans-serif">Последствия просрочки второго и последующих взносов определены в <span style="color: #A0172F; font-weight: 700">§ 6 Правил страхования авто</span>.</p>
+        <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #4A4244; font-family: Arial, sans-serif">Последствия просрочки второго и последующих взносов определены в <span style="color: #BF0D3E; font-weight: 700">§ 6 Правил страхования авто</span>.</p>
       </sc-if>
     </div>
   </div>

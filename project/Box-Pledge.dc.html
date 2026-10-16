@@ -15,14 +15,14 @@ body{margin:0}
 </helmet>
 <section aria-labelledby="sec-pledge" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
   <div style="display: flex; align-items: center; gap: 12px">
-    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">11</span>
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #BF0D3E; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">11</span>
     <h2 id="sec-pledge" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Залогодержатель</h2>
   </div>
   <div role="group" aria-label="Залог ТС" style="box-sizing: border-box; width: 100%; padding: 2px 14px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A1F22; white-space: nowrap">
-    <label style="display: flex; align-items: center; gap: 7px; min-height: 28px; cursor: pointer"><input type="checkbox" checked="{{isFree}}" onChange="{{pickFree}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">ТС не является предметом залога</label><label style="display: flex; align-items: center; gap: 7px; min-height: 28px; cursor: pointer"><input type="checkbox" checked="{{isPledged}}" onChange="{{pickPledged}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">ТС в залоге у банка</label>
+    <label style="display: flex; align-items: center; gap: 7px; min-height: 28px; cursor: pointer"><input type="checkbox" checked="{{isFree}}" onChange="{{pickFree}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">ТС не является предметом залога</label><label style="display: flex; align-items: center; gap: 7px; min-height: 28px; cursor: pointer"><input type="checkbox" checked="{{isPledged}}" onChange="{{pickPledged}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">ТС в залоге у банка</label>
   </div>
   <sc-if value="{{isPledged}}" hint-placeholder-val="{{ false }}">
-    <div style="display: flex; flex-wrap: wrap; column-gap: 40px; row-gap: 10px; padding: 4px 0 4px 12px; box-shadow: inset 3px 0 0 #A0172F"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Залогодержатель</span><span style="font-size: 14px; line-height: 1.35; font-weight: 600; color: #2A1F22">{{bank}}</span></div></div>
+    <div style="display: flex; flex-wrap: wrap; column-gap: 40px; row-gap: 10px; padding: 4px 0 4px 12px; box-shadow: inset 3px 0 0 #BF0D3E"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Залогодержатель</span><span style="font-size: 14px; line-height: 1.35; font-weight: 600; color: #2A1F22">{{bank}}</span></div></div>
   </sc-if>
 </section>
 </x-dc>

@@ -15,17 +15,17 @@ body{margin:0}
 </helmet>
 <section aria-labelledby="sec-drivers" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
   <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
-    <span style="align-self: center; width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">7</span>
+    <span style="align-self: center; width: 28px; height: 28px; border-radius: 8px; background: #BF0D3E; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">7</span>
     <h2 id="sec-drivers" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Водители</h2>
     <span style="font-size: 13px; color: #6E6366">Лица, допущенные к управлению ТС на законном основании</span>
   </div>
   <div role="group" aria-label="Допуск к управлению" style="box-sizing: border-box; width: 100%; padding: 2px 16px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 20px; font-size: 13px; color: #2A2324; white-space: nowrap">
-    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isList}}" onChange="{{pickList}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Список</label>
-    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isUnlimited}}" onChange="{{pickUnlimited}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Без ограничений</label>
+    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isList}}" onChange="{{pickList}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Список</label>
+    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isUnlimited}}" onChange="{{pickUnlimited}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Без ограничений</label>
     <div style="display: flex; align-items: center; gap: 6px">
-      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isAny}}" onChange="{{pickAny}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Любой водитель от</label>
-      <input type="text" aria-label="Минимальный возраст, лет" value="{{minAge}}" readonly="" style="width: 36px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #8C7F78; background: transparent; font: inherit; color: #1F1A1B; text-align: center; outline-color: #A0172F"><span>лет, стаж от</span>
-      <input type="text" aria-label="Минимальный стаж, лет" value="{{minExp}}" readonly="" style="width: 36px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #8C7F78; background: transparent; font: inherit; color: #1F1A1B; text-align: center; outline-color: #A0172F"><span>лет</span>
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isAny}}" onChange="{{pickAny}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Любой водитель от</label>
+      <input type="text" aria-label="Минимальный возраст, лет" value="{{minAge}}" readonly="" style="width: 36px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #8C7F78; background: transparent; font: inherit; color: #1F1A1B; text-align: center; outline-color: #BF0D3E"><span>лет, стаж от</span>
+      <input type="text" aria-label="Минимальный стаж, лет" value="{{minExp}}" readonly="" style="width: 36px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #8C7F78; background: transparent; font: inherit; color: #1F1A1B; text-align: center; outline-color: #BF0D3E"><span>лет</span>
     </div>
   </div>
   <sc-if value="{{isList}}" hint-placeholder-val="{{ true }}">

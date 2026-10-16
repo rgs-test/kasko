@@ -15,25 +15,25 @@ body{margin:0}
 </helmet>
 <section aria-labelledby="sec-owner" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
   <div style="display: flex; align-items: center; gap: 12px">
-    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span>
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #BF0D3E; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span>
     <h2 id="sec-owner" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Собственник транспортного средства (далее — ТС)</h2>
   </div>
   <div role="group" aria-label="Собственник ТС" style="box-sizing: border-box; width: 100%; padding: 2px 16px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A2324; white-space: nowrap">
-      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isSame}}" onChange="{{pickSame}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Страхователь</label>
-      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isOther}}" onChange="{{pickOther}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Иное лицо</label>
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isSame}}" onChange="{{pickSame}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Страхователь</label>
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isOther}}" onChange="{{pickOther}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Иное лицо</label>
   </div>
 
   <sc-if value="{{isOther}}" hint-placeholder-val="{{ false }}">
     <div style="display: flex; flex-direction: column; gap: 12px; padding: 14px 24px 18px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E8DFE1">
       <div style="box-sizing: border-box; width: 100%; padding: 2px 14px; border: 1px solid #ECE4DE; border-radius: 10px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A1F22; white-space: nowrap">
         <div role="group" aria-label="Тип лица собственника" style="display: flex; align-items: center; column-gap: 16px">
-          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isPerson}}" onChange="{{pickPerson}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Физическое лицо</label><label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isIP}}" onChange="{{pickIP}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Индивидуальный предприниматель</label><label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isLegal}}" onChange="{{pickLegal}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Юридическое лицо</label>
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isPerson}}" onChange="{{pickPerson}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Физическое лицо</label><label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isIP}}" onChange="{{pickIP}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Индивидуальный предприниматель</label><label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isLegal}}" onChange="{{pickLegal}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Юридическое лицо</label>
         </div>
         <sc-if value="{{showCitizenship}}" hint-placeholder-val="{{ true }}">
           <span aria-hidden="true" style="flex: none; width: 1px; height: 18px; background: #E8D9DC"></span>
           <div role="group" aria-labelledby="owner-citizenship" style="display: flex; align-items: center; column-gap: 16px">
             <span id="owner-citizenship" style="color: #6E5A5F">Гражданство:</span>
-            <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isRu}}" onChange="{{pickRu}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">РФ</label><label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isForeign}}" onChange="{{pickForeign}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Иностранный гражданин</label>
+            <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isRu}}" onChange="{{pickRu}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">РФ</label><label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isForeign}}" onChange="{{pickForeign}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Иностранный гражданин</label>
           </div>
         </sc-if>
       </div>

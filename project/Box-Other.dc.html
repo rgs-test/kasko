@@ -13,26 +13,26 @@
 body{margin:0}
 .oc-li{display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:8px;align-items:baseline;padding:8px 0;border-bottom:1px solid #EFE2E5}
 .oc-sub{grid-template-columns:56px minmax(0,1fr);padding-left:0}
-.oc-num{font-size:13px;font-weight:700;color:#A0172F}
+.oc-num{font-size:13px;font-weight:700;color:#BF0D3E}
 .oc-txt{margin:0;font-size:13px;line-height:1.55;color:#4A4244;font-family:Arial,sans-serif}
-.oc-hl{margin:6px 0;padding:12px 16px 12px 14px;border-radius:12px;background:#F8F5F2;border:1px solid #ECE4DE;box-shadow:inset 3px 0 0 #A0172F}
+.oc-hl{margin:6px 0;padding:12px 16px 12px 14px;border-radius:12px;background:#F8F5F2;border:1px solid #ECE4DE;box-shadow:inset 3px 0 0 #BF0D3E}
 .oc-hl .oc-txt{color:#2A1F22}
-.oc-tag{display:inline-block;margin-bottom:4px;font-size:11px;line-height:1.3;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:#A0172F;font-family:'Golos Text',system-ui,sans-serif}
-.oc-acc{color:#A0172F;font-weight:700}
+.oc-tag{display:inline-block;margin-bottom:4px;font-size:11px;line-height:1.3;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:#BF0D3E;font-family:'Golos Text',system-ui,sans-serif}
+.oc-acc{color:#BF0D3E;font-weight:700}
 </style>
 </helmet>
 <section aria-labelledby="sec-other" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
   <div style="display: flex; align-items: center; gap: 12px">
-    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{n}}</span>
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #BF0D3E; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{n}}</span>
     <h2 id="sec-other" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Прочие условия</h2>
   </div>
   <div class="oc-hl" role="group" aria-labelledby="pep-q" style="margin: 0; display: grid; grid-template-columns: 56px minmax(0, 1fr) 360px; column-gap: 8px; align-items: start">
     <span class="oc-num" style="padding-top: 2px">{{n}}.1.</span>
     <p id="pep-q" class="oc-txt" style="font-family: 'Golos Text', system-ui, sans-serif; font-weight: 600; font-size: 14px; line-height: 1.45">Является ли Страхователь публичным должностным лицом, указанным в пп. 1 п. 1 ст. 7.3 Федерального закона от 07.08.2001 № 115-ФЗ, или родственником такого лица?</p>
     <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: #2A2324">
-      <label style="display: flex; align-items: center; gap: 7px; min-height: 26px; cursor: pointer; white-space: nowrap"><input type="checkbox" checked="{{pepYes}}" onChange="{{pickYes}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Да — должность и работодатель или степень родства:</label>
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 26px; cursor: pointer; white-space: nowrap"><input type="checkbox" checked="{{pepYes}}" onChange="{{pickYes}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Да — должность и работодатель или степень родства:</label>
       <span style="margin-left: 23px; min-height: 20px; box-sizing: border-box; padding: 0 2px; border-bottom: 1px solid #8C7F78; font-size: 13px; line-height: 19px; font-weight: 600; color: #1F1A1B">{{position}}</span>
-      <label style="display: flex; align-items: center; gap: 7px; min-height: 26px; cursor: pointer"><input type="checkbox" checked="{{pepNo}}" onChange="{{pickNo}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Нет</label>
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 26px; cursor: pointer"><input type="checkbox" checked="{{pepNo}}" onChange="{{pickNo}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">Нет</label>
     </div>
   </div>
   <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">

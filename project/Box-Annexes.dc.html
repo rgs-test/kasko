@@ -15,14 +15,14 @@ body{margin:0}
 </helmet>
 <section aria-labelledby="sec-annex" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
   <div style="display: flex; align-items: center; gap: 12px">
-    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">15</span>
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #BF0D3E; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">15</span>
     <h2 id="sec-annex" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Приложения к Полису-оферте</h2>
   </div>
   <div style="display: flex; align-items: stretch; gap: 24px">
     <ul aria-label="Приложения" style="flex: 1 1 0; min-width: 0; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
       <sc-for list="{{docs}}" as="d" hint-placeholder-count="4">
         <li style="display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid #EFE2E5; font-size: 13px; line-height: 1.4; color: #2A1F22">
-          <svg aria-hidden="true" width="14" height="16" viewBox="0 0 14 16" fill="none" stroke="#A0172F" stroke-width="1.4" stroke-linejoin="round" style="flex: none"><path d="M2 1h7l3 3v11H2z"></path><path d="M9 1v3h3M4.5 8h5M4.5 11h5"></path></svg>
+          <svg aria-hidden="true" width="14" height="16" viewBox="0 0 14 16" fill="none" stroke="#BF0D3E" stroke-width="1.4" stroke-linejoin="round" style="flex: none"><path d="M2 1h7l3 3v11H2z"></path><path d="M9 1v3h3M4.5 8h5M4.5 11h5"></path></svg>
           <span style="font-weight: 600">{{d.name}}</span>
         </li>
       </sc-for>
@@ -32,7 +32,7 @@ body{margin:0}
       <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #4A4244; font-family: Arial, sans-serif">Текст Правил размещен в электронном виде по адресу:</p>
       <sc-for list="{{links}}" as="l" hint-placeholder-count="2">
         <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 13px; line-height: 1.4">
-          <span style="color: #4A4244">{{l.name}}</span><span style="color: #A0172F; font-weight: 700; white-space: nowrap">{{l.url}}</span>
+          <span style="color: #4A4244">{{l.name}}</span><span style="color: #BF0D3E; font-weight: 700; white-space: nowrap">{{l.url}}</span>
         </div>
       </sc-for>
     </div>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Сноска — данные Страхователя неполные</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+html,body{margin:0;background:transparent}
+</style>
+</helmet>
+<div style="width: 440px; height: 84px; box-sizing: border-box; display: flex; align-items: center; font-family: 'Golos Text', system-ui, sans-serif">
+  <div style="flex: none; width: 300px; box-sizing: border-box; display: flex; align-items: flex-start; gap: 8px; padding: 10px 14px; border-radius: 10px; background: #FFF6D6; border: 1px solid #E8C860; box-shadow: 0 1px 2px rgba(0,0,0,0.06)">
+    <span aria-hidden="true" style="width: 20px; height: 20px; border-radius: 999px; background: #C98A00; color: #FFFFFF; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none">!</span>
+    <span style="font-size: 13px; line-height: 1.4; font-weight: 600; color: #3A2A00">Специально указаны не все данные, полная анкета в конце документа на странице 5</span>
+  </div>
+  <div aria-hidden="true" style="flex: 1 1 auto; height: 0; border-top: 2px dashed #C98A00"></div>
+  <span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: #C98A00"></span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":440,"height":84}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

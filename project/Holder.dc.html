@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Раздел 2 — Страхователь</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="sec-holder" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 10px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span>
+    <h2 id="sec-holder" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Страхователь</h2>
+  </div>
+
+  <sc-if value="{{isPerson}}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; flex-direction: column; gap: 14px; padding: 14px 24px 18px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E8DFE1">
+      <div style="box-sizing: border-box; width: 100%; padding: 2px 16px; border: 1px solid #ECE4DE; border-radius: 10px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A2324; white-space: nowrap">
+        <div role="group" aria-label="Категория страхователя" style="display: flex; align-items: center; column-gap: 16px">
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isPerson}}" onChange="{{pickPerson}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer"><span>Физическое лицо</span></label>
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isIP}}" onChange="{{pickIP}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer"><span>Индивидуальный предприниматель</span></label>
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isLegal}}" onChange="{{pickLegal}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer"><span>Юридическое лицо</span></label>
+        </div>
+        <sc-if value="{{showCitizenship}}" hint-placeholder-val="{{ true }}">
+          <span aria-hidden="true" style="flex: none; width: 1px; height: 18px; background: #D9CEC6"></span>
+          <div role="group" aria-labelledby="holder-citizenship" style="display: flex; align-items: center; column-gap: 16px">
+            <span id="holder-citizenship" style="color: #5A5052">Гражданство:</span>
+            <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isRu}}" onChange="{{pickRu}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">РФ</label>
+            <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isForeign}}" onChange="{{pickForeign}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer"><span>Иностранный гражданин</span></label>
+          </div>
+        </sc-if>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 22px; line-height: 1.2; font-weight: 700; color: #2A1F22">Иванов Иван Иванович</span>
+        <div style="display: grid; grid-template-columns: auto auto auto auto minmax(0, 1fr); column-gap: 32px; row-gap: 10px">
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Дата рождения</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">14.03.1985</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Место рождения</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">г. Москва</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Паспорт</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">{{passportNo}}</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Дата выдачи</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">20.03.2005</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Кем выдан</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">{{personIssuer}}</span></div>
+        </div>
+      </div>
+      <sc-if value="{{showResidency}}" hint-placeholder-val="{{ false }}">
+        <div style="display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 32px; padding-top: 10px; border-top: 1px solid #EFE2E5">
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Документ, дающий право на проживание в РФ</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">Вид на жительство 82 0000000</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Срок пребывания</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">до 20.03.2030</span></div>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{isOrg}}" hint-placeholder-val="{{ false }}">
+      <div style="box-sizing: border-box; width: 100%; padding: 2px 16px; border: 1px solid #ECE4DE; border-radius: 10px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A2324; white-space: nowrap">
+        <div role="group" aria-label="Категория страхователя" style="display: flex; align-items: center; column-gap: 16px">
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isPerson}}" onChange="{{pickPerson}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Физическое лицо</label>
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isIP}}" onChange="{{pickIP}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Индивидуальный предприниматель</label>
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isLegal}}" onChange="{{pickLegal}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Юридическое лицо</label>
+        </div>
+        <sc-if value="{{showCitizenship}}" hint-placeholder-val="{{ true }}">
+          <span aria-hidden="true" style="flex: none; width: 1px; height: 18px; background: #D9CEC6"></span>
+          <div role="group" aria-labelledby="holder-citizenship" style="display: flex; align-items: center; column-gap: 16px">
+            <span id="holder-citizenship" style="color: #5A5052">Гражданство:</span>
+            <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isRu}}" onChange="{{pickRu}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">РФ</label>
+            <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isForeign}}" onChange="{{pickForeign}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Иностранный гражданин</label>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display: flex; flex-direction: column; border-top: 1px solid #E4DCD6">
+        <sc-if value="{{isIP}}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Наименование</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B; font-weight: 600">ИП Иванов Иван Иванович</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Дата рождения</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">14.03.1985</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Место рождения</span><span style="grid-column: span 3; padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">г. Москва</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Документ, удостоверяющий личность</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">{{personDoc}}</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Дата выдачи</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">20.03.2005</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Кем выдан</span><span style="grid-column: span 3; padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">{{personIssuer}}</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Адрес регистрации</span><span style="grid-column: span 3; padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">119000, г. Москва, ул. Примерная, д. 1, кв. 1</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">ИНН/СНИЛС</span><span style="grid-column: span 3; padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">770000000000</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">ОГРНИП</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">320770000000000</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Дата гос. регистрации</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">01.02.2020</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Телефон</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">+7 900 000-00-00</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Email</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">ip.ivanov@example.ru</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Сайт (при наличии)</span><span style="grid-column: span 3; padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">www.example.ru</span></div>
+        </sc-if>
+        <sc-if value="{{isLegal}}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Наименование</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B; font-weight: 600">ООО «Пример»</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">КПП</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">770001001</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Документ, подтверждающий регистрацию</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">Лист записи ЕГРЮЛ</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Дата выдачи</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">01.02.2015</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Адрес регистрации</span><span style="grid-column: span 3; padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">119000, г. Москва, ул. Примерная, д. 1, офис 1</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">ИНН</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">7700000000</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">ОГРН</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">1027700000000</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Дата гос. регистрации</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">01.02.2015</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Сайт (при наличии)</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">www.example.ru</span></div>
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1"><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Телефон</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">+7 900 000-00-00</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Email</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">info@example.ru</span></div>
+        </sc-if>
+        <sc-if value="{{showResidencyOrg}}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: 21% 30% 19% 30%; align-items: baseline; border-bottom: 1px solid #EDE6E1; box-shadow: inset 3px 0 0 #A0172F; background: #FDF8F2"><span style="padding: 7px 12px 7px 14px; font-size: 12px; line-height: 1.35; color: #6E6366">Документ, дающий право на проживание в РФ</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">Вид на жительство 82 0000000</span><span style="padding: 7px 12px 7px 0; font-size: 12px; line-height: 1.35; color: #6E6366">Срок пребывания</span><span style="padding: 7px 16px 7px 0; font-size: 13px; line-height: 1.4; color: #1F1A1B">до 20.03.2030</span></div>
+        </sc-if>
+      </div>
+  </sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"holderType":{"editor":"enum","options":["person","ip","legal"],"default":"person","section":"Страхователь"},"citizenship":{"editor":"enum","options":["ru","foreign"],"default":"ru","section":"Страхователь"},"$preview":{"width":1040,"height":220}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { holder: null, citizen: null };
+  }
+  renderVals() {
+    const h = this.state.holder ?? this.props.holderType ?? 'person';
+    const c = this.state.citizen ?? this.props.citizenship ?? 'ru';
+    const isLegal = h === 'legal';
+    const isForeign = !isLegal && c === 'foreign';
+    const setHolder = (x) => () => this.setState({ holder: x });
+    const setCitizen = (x) => () => this.setState({ citizen: x });
+    return {
+      isPerson: h === 'person',
+      isIP: h === 'ip',
+      isLegal: isLegal,
+      hasPersonDoc: !isLegal,
+      personDoc: isForeign ? 'Паспорт №000000000' : 'Паспорт 45 00 000000',
+      personIssuer: isForeign ? '[Орган, выдавший документ]' : 'Отделом внутренних дел района Хамовники г. Москвы',
+      showResidency: isForeign,
+      showResidencyOrg: isForeign && h === 'ip',
+      isOrg: h !== 'person',
+      passportNo: isForeign ? '№000000000' : '45 00 000000',
+      citizenshipText: isForeign ? '[Страна гражданства]' : 'Российская Федерация',
+      pickPerson: setHolder('person'),
+      pickIP: setHolder('ip'),
+      pickLegal: setHolder('legal'),
+      showCitizenship: !isLegal,
+      isRu: c !== 'foreign',
+      isForeign: c === 'foreign',
+      pickRu: setCitizen('ru'),
+      pickForeign: setCitizen('foreign')
+    };
+  }
+}
+</script>
+</body>
+</html>

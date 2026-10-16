@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Раздел 3 — Собственник ТС</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="sec-owner" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span>
+    <h2 id="sec-owner" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Собственник транспортного средства (далее — ТС)</h2>
+  </div>
+  <div role="group" aria-label="Собственник ТС" style="box-sizing: border-box; width: 100%; padding: 2px 16px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A2324; white-space: nowrap">
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isSame}}" onChange="{{pickSame}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Страхователь</label>
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isOther}}" onChange="{{pickOther}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Иное лицо</label>
+  </div>
+
+  <sc-if value="{{isOther}}" hint-placeholder-val="{{ false }}">
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 14px 24px 18px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E8DFE1">
+      <div style="box-sizing: border-box; width: 100%; padding: 2px 14px; border: 1px solid #ECE4DE; border-radius: 10px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A1F22; white-space: nowrap">
+        <div role="group" aria-label="Тип лица собственника" style="display: flex; align-items: center; column-gap: 16px">
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isPerson}}" onChange="{{pickPerson}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Физическое лицо</label><label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isIP}}" onChange="{{pickIP}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Индивидуальный предприниматель</label><label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isLegal}}" onChange="{{pickLegal}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Юридическое лицо</label>
+        </div>
+        <sc-if value="{{showCitizenship}}" hint-placeholder-val="{{ true }}">
+          <span aria-hidden="true" style="flex: none; width: 1px; height: 18px; background: #E8D9DC"></span>
+          <div role="group" aria-labelledby="owner-citizenship" style="display: flex; align-items: center; column-gap: 16px">
+            <span id="owner-citizenship" style="color: #6E5A5F">Гражданство:</span>
+            <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isRu}}" onChange="{{pickRu}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">РФ</label><label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isForeign}}" onChange="{{pickForeign}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Иностранный гражданин</label>
+          </div>
+        </sc-if>
+      </div>
+      <sc-if value="{{isPerson}}" hint-placeholder-val="{{ true }}">
+        <span style="font-size: 22px; line-height: 1.2; font-weight: 700; color: #2A1F22">Петров Петр Петрович</span>
+        <div style="display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Дата рождения</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">02.07.1979</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Место рождения</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">г. Тула</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Паспорт</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">{{passportNo}}</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Дата выдачи</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">15.08.2001</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Кем выдан</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">{{issuer}}</span></div></div>
+      </sc-if>
+      <sc-if value="{{isIP}}" hint-placeholder-val="{{ false }}">
+        <span style="font-size: 22px; line-height: 1.2; font-weight: 700; color: #2A1F22">ИП Петров Петр Петрович</span>
+        <div style="display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Дата рождения</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">02.07.1979</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Место рождения</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">г. Тула</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Паспорт</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">{{passportNo}}</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Дата выдачи</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">15.08.2001</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Кем выдан</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">{{issuer}}</span></div></div>
+        <div style="display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">ИНН/СНИЛС</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">710000000000</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">ОГРНИП</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">320710000000000</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Дата гос. регистрации</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">10.04.2019</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Телефон (мобильный)</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">+7 900 111-11-11</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Email</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">ip.petrov@example.ru</span></div></div>
+        <div style="display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Адрес регистрации</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">300000, г. Тула, ул. Примерная, д. 2, кв. 3</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Сайт (при наличии)</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">www.example.ru</span></div></div>
+      </sc-if>
+      <sc-if value="{{isLegal}}" hint-placeholder-val="{{ false }}">
+        <span style="font-size: 22px; line-height: 1.2; font-weight: 700; color: #2A1F22">ООО «Пример-Авто»</span>
+        <div style="display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">ИНН</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">7100000000</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">КПП</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">710001001</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">ОГРН</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">1167100000000</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Дата гос. регистрации</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">01.03.2016</span></div></div>
+        <div style="display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Документ, подтверждающий регистрацию</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">Лист записи ЕГРЮЛ, № 0000000000</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Дата выдачи</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">01.03.2016</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Кем выдан</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">[Регистрирующий орган]</span></div></div>
+        <div style="display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 10px"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Адрес места нахождения</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">300000, г. Тула, ул. Примерная, д. 5, офис 10</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Телефон</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">+7 4872 00-00-00</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Email</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">info@example.ru</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Сайт (при наличии)</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">www.example.ru</span></div></div>
+      </sc-if>
+      <sc-if value="{{showResidency}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 10px; padding-top: 10px; border-top: 1px solid #EFE2E5"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Документ, дающий право на проживание в РФ</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">Вид на жительство 82 0000000</span></div><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Срок пребывания</span><span style="font-size: 14px; line-height: 1.35; color: #2A1F22">с 20.03.2025 по 20.03.2030</span></div></div>
+      </sc-if>
+    </div>
+  </sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ownerIsHolder":{"editor":"boolean","default":true,"section":"Собственник"},"ownerType":{"editor":"enum","options":["person","ip","legal"],"default":"person","section":"Собственник"},"citizenship":{"editor":"enum","options":["ru","foreign"],"default":"ru","section":"Собственник"},"$preview":{"width":1040,"height":90}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { same: null, type: null, citizen: null };
+  }
+  renderVals() {
+    const p = this.props.ownerIsHolder;
+    const same = this.state.same ?? !(p === false || p === 'false');
+    const t = this.state.type ?? this.props.ownerType ?? 'person';
+    const c = this.state.citizen ?? this.props.citizenship ?? 'ru';
+    const isLegal = t === 'legal';
+    const isForeign = !isLegal && c === 'foreign';
+    const setType = (x) => () => this.setState({ type: x });
+    const setCitizen = (x) => () => this.setState({ citizen: x });
+    return {
+      isSame: same, isOther: !same,
+      pickSame: () => this.setState({ same: true }),
+      pickOther: () => this.setState({ same: false }),
+      isPerson: t === 'person', isIP: t === 'ip', isLegal: isLegal,
+      pickPerson: setType('person'), pickIP: setType('ip'), pickLegal: setType('legal'),
+      showCitizenship: !isLegal,
+      isRu: c !== 'foreign', isForeign: c === 'foreign',
+      pickRu: setCitizen('ru'), pickForeign: setCitizen('foreign'),
+      showResidency: isForeign,
+      passportNo: isForeign ? '№000000000' : '70 00 000000',
+      issuer: isForeign ? '[Орган, выдавший документ]' : 'Отделом УФМС России по Тульской обл.'
+    };
+  }
+}
+</script>
+</body>
+</html>

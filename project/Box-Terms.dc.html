@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Коробка-конструктор — термины</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+.tm-row{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:24px;align-items:start;padding:13px 0;border-bottom:1px solid #EFE2E5}
+.tm-term{display:flex;flex-direction:column;gap:3px}
+.tm-name{font-size:14px;line-height:1.3;font-weight:700;color:#7A0F22}
+.tm-sub{font-size:11px;line-height:1.35;color:#6E6366}
+.tm-body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.tm-p{margin:0;font-size:13px;line-height:1.55;color:#2A2324}
+.tm-muted{color:#6E6366}
+.tm-a{color:#A0172F;text-decoration:underline;text-underline-offset:2px}
+.tm-ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.tm-li{font-size:13px;line-height:1.5;color:#2A2324}
+.tm-li::marker{color:#A0172F}
+.tm-tbl{display:flex;flex-direction:column;border-radius:10px;overflow:hidden}
+.tm-tr{display:grid;grid-template-columns:28px minmax(0,1.3fr) 110px minmax(0,1.2fr);column-gap:10px;align-items:start;padding:7px 12px;border-bottom:1px solid #EFE2E5;font-size:12.5px;line-height:1.4;color:#2A2324}
+.tm-th{background:#F8F5F2;border-bottom:0;font-size:11px;font-weight:600;color:#6E6366}
+.tm-rad{width:12px;height:12px;margin-top:2px;border-radius:999px;border:1.5px solid #A0172F;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
+.tm-dot{width:6px;height:6px;border-radius:999px;background:#A0172F}
+.tm-opt{display:grid;grid-template-columns:22px minmax(0,1fr);align-items:start;font-size:13px;line-height:1.5;color:#2A2324}
+.tm-box{width:13px;height:13px;margin-top:3px;border-radius:3px;border:1.5px solid #A0172F;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
+.tm-box-on{background:#A0172F}
+.tm-chip{align-self:flex-start;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:700}
+.tm-types{display:grid;grid-template-columns:150px minmax(0,1fr);row-gap:4px;column-gap:16px;font-size:13px;line-height:1.45}
+</style>
+</helmet>
+<section aria-labelledby="sec-terms" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column">
+  <h2 id="sec-terms" style="margin: 0; padding-bottom: 10px; border-bottom: 1px solid #E4D6D9; font-size: 20px; font-weight: 700; color: #1F1A1B">Термины</h2>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Страховой случай</span></div><div class="tm-body"><p class="tm-p">Совершившееся событие из числа рисков, застрахованных в <span class="tm-a">Разделе 7</span>, произошедшее в период страхования и на территории по <span class="tm-a">Разделу 12</span>, с наступлением которого возникает обязанность Страховщика произвести выплату.</p></div></div>
+  <sc-if value="{{dtpShown}}" hint-placeholder-val="{{ true }}">
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ДТП</span><span class="tm-sub">дорожно-транспортное происшествие</span></div><div class="tm-body"><p class="tm-p">{{dtpText}}</p></div></div>
+  </sc-if>
+  <sc-if value="{{nsShown}}" hint-placeholder-val="{{ true }}">
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Несчастный случай</span></div><div class="tm-body"><p class="tm-p">Внезапное, кратковременное, непредвиденное внешнее событие, произошедшее в период страхования независимо от воли Застрахованного лица, Страхователя или Выгодоприобретателя, характер, время и место которого могут быть однозначно определены, если это событие:</p><ul class="tm-ul"><li class="tm-li">произошло в результате застрахованного по Полису-оферте события: {{nsEvents}};</li><li class="tm-li">произошло, когда Застрахованное лицо находилось в ТС в качестве водителя или пассажира;</li><li class="tm-li">повлекло нарушение здоровья, трудоспособности или смерть Застрахованного лица.</li></ul></div></div>
+  </sc-if>
+  <sc-if value="{{ns}}" hint-placeholder-val="{{ true }}">
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Застрахованное лицо</span></div><div class="tm-body"><p class="tm-p">Водитель и пассажиры, находящиеся в ТС в момент страхового случая, без поименного указания (паушальная система).</p></div></div>
+  </sc-if>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Полная гибель</span></div><div class="tm-body"><p class="tm-p">Фактическая или конструктивная гибель ТС по п. 2.18, 2.19 Правил страхования ТС. На полную гибель не распространяется способ выплаты по <span class="tm-a">Разделу 9</span>.</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Франшиза</span></div><div class="tm-body"><p class="tm-p">Часть убытка, которая не возмещается Страховщиком и вычитается из выплаты (п. 2.15 Правил страхования ТС). Размер — <span class="tm-a">Раздел 7</span>.</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Лимиты возмещения</span></div><div class="tm-body"><p class="tm-p">Выплата производится в пределах страховой суммы не более чем по одному страховому случаю за срок страхования по каждому из застрахованных рисков: {{limRisks}}. После такой выплаты обязательства Страховщика по соответствующему риску считаются исполненными в полном объеме.</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Тип страховой суммы</span></div><div class="tm-body"><p class="tm-p">Неагрегатная — не уменьшается на сумму произведенных выплат. Неиндексируемая — остается неизменной в течение срока страхования. Для рисков по <span class="tm-a">Разделу 7</span> тип указан заранее.</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Коэффициент пропорциональности</span></div><div class="tm-body"><p class="tm-p">Отношение страховой суммы к страховой стоимости ТС (<span class="tm-a">Раздел 7</span>); применяется к выплате в порядке Правил страхования ТС.</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">УТС</span><span class="tm-sub">утрата товарной стоимости</span></div><div class="tm-body"><p class="tm-p">Уменьшение стоимости ТС, вызванное ухудшением его внешнего вида и эксплуатационных качеств в результате повреждения и ремонта. По настоящему Полису-оферте не возмещается (<span class="tm-a">Раздел 9</span>).</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">СТОА</span></div><div class="tm-body"><p class="tm-p">Станция технического обслуживания автомобилей, на которую Страховщик выдает направление на ремонт (<span class="tm-a">Раздел 9</span>).</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ЛДУ</span><span class="tm-sub">лица, допущенные к управлению</span></div><div class="tm-body"><p class="tm-p">Лица, управляющие ТС на законном основании в соответствии с <span class="tm-a">Разделом 6</span>.</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Выгодоприобретатель</span></div><div class="tm-body"><p class="tm-p">Лицо, в пользу которого заключен Договор и которое получает страховую выплату; определяется по каждому риску в <span class="tm-a">Разделе 10</span>.</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ТС</span></div><div class="tm-body"><p class="tm-p">Транспортное средство, идентифицированное в <span class="tm-a">Разделе 4</span>.</p></div></div>
+  <div class="tm-row" style="border-bottom: 0"><div class="tm-term"><span class="tm-name">Акцепт</span></div><div class="tm-body"><p class="tm-p">Уплата страховой премии в размере и в срок по <span class="tm-a">Разделу 8</span>; с этого момента Полис-оферта является заключенным Договором (ст. 438 ГК РФ).</p></div></div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dtp": {"editor": "enum", "options": ["standard", "thirdParty", "ownDriver"], "default": "thirdParty", "section": "ДТП"}, "nsDef": {"editor": "boolean", "default": true, "section": "Несчастный случай"}, "ns": {"editor": "boolean", "default": true, "section": "Несчастный случай"}, "v1": {"editor": "boolean", "default": true, "section": "Застрахованные риски"}, "v2": {"editor": "boolean", "default": false, "section": "Застрахованные риски"}, "v3": {"editor": "boolean", "default": true, "section": "Застрахованные риски"}, "v4": {"editor": "boolean", "default": true, "section": "Застрахованные риски"}, "v5": {"editor": "boolean", "default": false, "section": "Застрахованные риски"}, "drone": {"editor": "boolean", "default": false, "section": "Застрахованные риски"}, "$preview": {"width": 1040, "height": 1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const b = (k, d) => (p[k] === undefined || p[k] === null || p[k] === '') ? d : (p[k] === true || p[k] === 'true');
+    const dtp = p.dtp || 'thirdParty';
+    const texts = {
+      thirdParty: 'Дорожно-транспортное происшествие, произошедшее по вине установленных третьих лиц, в том числе при обоюдной вине участников ДТП. К третьим лицам относятся в том числе пешеходы и лица, управляющие велосипедами, самокатами и аналогичными средствами передвижения.',
+      ownDriver: 'Дорожно-транспортное происшествие, произошедшее в результате нарушения ПДД лицом, допущенным к управлению ТС (Раздел 6), за исключением случаев обоюдного нарушения ПДД с другими участниками ДТП.'
+    };
+    const dtpOn = b('v1', true) || b('v2', false);
+    const ev = [];
+    if (dtpOn) ev.push('ДТП');
+    if (b('v3', true)) ev.push('противоправные действия третьих лиц');
+    if (b('v4', true)) ev.push('стихийное бедствие', 'падение предметов');
+    ev.push('полная гибель');
+    if (b('v5', false)) ev.push('хищение');
+    const lim = [];
+    if (dtpOn) lim.push('ДТП');
+    if (b('v3', true)) lim.push('противоправные действия третьих лиц');
+    if (b('v4', true)) lim.push('стихийное бедствие', 'падение предметов');
+    lim.push('техногенная авария');
+    if (b('drone', false)) lim.push('падение (воздействие) БПЛА');
+    const ns = b('ns', true);
+    return {
+      dtpShown: dtp !== 'standard' && !!texts[dtp],
+      dtpText: texts[dtp] || '',
+      ns: ns,
+      nsShown: ns && b('nsDef', true),
+      nsEvents: ev.join(', '),
+      limRisks: lim.map((x) => '«' + x + '»').join(', ')
+    };
+  }
+}
+</script>
+</body>
+</html>

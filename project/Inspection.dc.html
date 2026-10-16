@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Раздел 15 — Результаты осмотра и противоугонные средства</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="sec-insp" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">15</span>
+    <h2 id="sec-insp" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Результаты осмотра и условия оборудования ТС противоугонными средствами</h2>
+  </div>
+  <div role="group" aria-label="Осмотр ТС" style="box-sizing: border-box; width: 100%; padding: 2px 14px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A1F22; white-space: nowrap">
+    <label style="display: flex; align-items: center; gap: 7px; min-height: 28px; cursor: pointer"><input type="checkbox" checked="{{notInspected}}" onChange="{{pickNo}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Осмотр не производился</label><label style="display: flex; align-items: center; gap: 7px; min-height: 28px; cursor: pointer"><input type="checkbox" checked="{{inspected}}" onChange="{{pickYes}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Акт осмотра</label><sc-if value="{{inspected}}" hint-placeholder-val="{{ false }}"><span>от <b style="font-weight: 700">{{actDate}}</b></span></sc-if>
+  </div>
+  <div style="display: flex; align-items: flex-start; gap: 24px; padding: 14px 24px; border-radius: 16px; background: #FDFAFB; border: 1px solid #F4EBED">
+    <span style="flex: none; width: 260px; font-size: 13px; line-height: 1.45; color: #6E5A5F">ТС оборудовано следующими противоугонными системами:</span>
+    <div style="flex: 1 1 0; min-width: 0; display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{systems}}" as="s" hint-placeholder-count="2">
+        <span style="padding: 4px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DADD; font-size: 13px; line-height: 1.4; font-weight: 600; color: #2A1F22">{{s.name}}</span>
+      </sc-for>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"inspected":{"editor":"boolean","default":false,"section":"Осмотр"},"antitheft":{"editor":"enum","options":["standard","satellite","none"],"default":"standard","section":"Противоугонные системы"},"$preview":{"width":1040,"height":170}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { insp: null };
+  }
+  renderVals() {
+    const ip = this.props.inspected;
+    const on = this.state.insp ?? (ip === true || ip === 'true');
+    const sets = {
+      standard: ['Штатная охранная сигнализация', 'Иммобилайзер'],
+      satellite: ['Штатная охранная сигнализация', 'Иммобилайзер', 'Спутниковая поисково-охранная система «Пример-GPS»'],
+      none: ['Не установлены']
+    };
+    const list = sets[this.props.antitheft || 'standard'] || sets.standard;
+    return {
+      inspected: on,
+      notInspected: !on,
+      pickYes: () => this.setState({ insp: true }),
+      pickNo: () => this.setState({ insp: false }),
+      actDate: '07.10.2026',
+      systems: list.map((n) => ({ name: n }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Термины</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+.tm-row{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:24px;align-items:start;padding:13px 0;border-bottom:1px solid #EFE2E5}
+.tm-term{display:flex;flex-direction:column;gap:3px}
+.tm-name{font-size:14px;line-height:1.3;font-weight:700;color:#7A0F22}
+.tm-sub{font-size:11px;line-height:1.35;color:#6E6366}
+.tm-body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.tm-p{margin:0;font-size:13px;line-height:1.55;color:#2A2324}
+.tm-muted{color:#6E6366}
+.tm-a{color:#A0172F;text-decoration:underline;text-underline-offset:2px}
+.tm-ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.tm-li{font-size:13px;line-height:1.5;color:#2A2324}
+.tm-li::marker{color:#A0172F}
+.tm-tbl{display:flex;flex-direction:column;border-radius:10px;overflow:hidden}
+.tm-tr{display:grid;grid-template-columns:28px minmax(0,1.3fr) 110px minmax(0,1.2fr);column-gap:10px;align-items:start;padding:7px 12px;border-bottom:1px solid #EFE2E5;font-size:12.5px;line-height:1.4;color:#2A2324}
+.tm-th{background:#F8F5F2;border-bottom:0;font-size:11px;font-weight:600;color:#6E6366}
+.tm-rad{width:12px;height:12px;margin-top:2px;border-radius:999px;border:1.5px solid #A0172F;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
+.tm-dot{width:6px;height:6px;border-radius:999px;background:#A0172F}
+.tm-opt{display:grid;grid-template-columns:22px minmax(0,1fr);align-items:start;font-size:13px;line-height:1.5;color:#2A2324}
+.tm-box{width:13px;height:13px;margin-top:3px;border-radius:3px;border:1.5px solid #A0172F;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
+.tm-box-on{background:#A0172F}
+.tm-chip{align-self:flex-start;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:700}
+.tm-types{display:grid;grid-template-columns:150px minmax(0,1fr);row-gap:4px;column-gap:16px;font-size:13px;line-height:1.45}
+</style>
+</helmet>
+<section aria-labelledby="sec-terms" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column">
+  <h2 id="sec-terms" style="margin: 0; padding-bottom: 10px; border-bottom: 1px solid #E4D6D9; font-size: 20px; font-weight: 700; color: #1F1A1B">Термины</h2>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Страховой случай</span></div><div class="tm-body"><p class="tm-p">Совершившееся событие из числа рисков, отмеченных в <span class="tm-a">Разделе 8</span>, произошедшее в период и на территории по <span class="tm-a">Разделу 13</span>, с наступлением которого возникает обязанность Страховщика произвести выплату.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ДТП</span><span class="tm-sub">дорожно-транспортное происшествие</span></div><div class="tm-body">
+    <p class="tm-p">Событие по пп. «а» п. 3.2.1 Приложения № 1 к Правилам страхования ТС. Покрытие ограничено условием, отмеченным ниже (отмечается одно):</p>
+    <div class="tm-tbl" role="table" aria-label="Условия покрытия ДТП">
+      <div class="tm-tr tm-th" role="row"><span></span><span role="columnheader">Чья вина</span><span role="columnheader">Обоюдная вина</span><span role="columnheader">Условие</span></div>
+      <sc-for list="{{dtpRows}}" as="r" hint-placeholder-count="9">
+        <div class="tm-tr" role="row"><span class="tm-rad"><sc-if value="{{r.on}}" hint-placeholder-val="{{ false }}"><span class="tm-dot"></span></sc-if></span><span role="cell">{{r.who}}</span><span role="cell">{{r.mutual}}</span><span role="cell">{{r.cond}}</span></div>
+      </sc-for>
+    </div>
+    <p class="tm-p tm-muted" style="font-size: 12px">«Третьи лица» включают пешеходов и лиц, управляющих велосипедами, самокатами и т. п. Виновником не может быть Страхователь, Выгодоприобретатель или лицо из <span class="tm-a">Раздела 7</span>.</p>
+  </div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ПДТЛ</span><span class="tm-sub">противоправные действия третьих лиц</span></div><div class="tm-body">
+    <sc-for list="{{pdtlRows}}" as="o" hint-placeholder-count="3">
+      <div class="tm-opt"><sc-if value="{{o.on}}" hint-placeholder-val="{{ false }}"><span class="tm-box tm-box-on"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-6"></path></svg></span></sc-if><sc-if value="{{o.off}}" hint-placeholder-val="{{ true }}"><span class="tm-box"></span></sc-if><span>{{o.t}}</span></div>
+    </sc-for>
+  </div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Хищение</span></div><div class="tm-body">
+    <p class="tm-p">Событие по пп. {{theftSub}} п. 3.2.2 Приложения № 1 к Правилам страхования ТС. Страхуется только в дополнение к риску «Ущерб».</p>
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px; row-gap: 6px">
+      <span class="tm-chip" style="background: #A0172F; color: #FFFFFF">Покрывается</span>
+      <span class="tm-chip" style="border: 1.5px solid #6E6366; color: #2A2324">Не покрывается</span>
+      <div class="tm-opt"><sc-if value="{{theftDocs}}" hint-placeholder-val="{{ false }}"><span class="tm-box tm-box-on"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-6"></path></svg></span></sc-if><sc-if value="{{noTheftDocs}}" hint-placeholder-val="{{ true }}"><span class="tm-box"></span></sc-if><span>если отмечено — включая хищение ТС вместе с регистрационными документами</span></div>
+      <span class="tm-p">события вне отмеченных подпунктов п. 3.2.2</span>
+    </div>
+  </div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Ущерб</span></div><div class="tm-body"><p class="tm-p">Повреждение или уничтожение ТС (<span class="tm-a">Раздел 4</span>) и, если застраховано, ДО (<span class="tm-a">Раздел 5</span>) в результате событий по пп. «а»–«з» п. 3.2.1 Приложения № 1 к Правилам страхования ТС, отмеченных в <span class="tm-a">Разделе 8</span>.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Полная гибель</span></div><div class="tm-body"><p class="tm-p">Фактическая или конструктивная гибель ТС по п. 2.18, 2.19 Правил страхования ТС. На полную гибель не распространяется выбор способа ремонта по <span class="tm-a">Разделу 10</span>.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Гидроудар, Гидроудар+</span></div><div class="tm-body"><p class="tm-p">Дополнительные риски по п. 3.2.1 и п. 3.2.3 Приложения № 7 к Правилам страхования ТС. Действуют только вместе с рисками КАСКО / Ущерб / Ущерб — полная гибель.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Несчастный случай</span></div><div class="tm-body"><p class="tm-p">Произошедшее в период страхования независимо от воли Застрахованного лица, Страхователя и Выгодоприобретателя внезапное, кратковременное, непредвиденное, внешнее событие, характер, время и место которого могут быть однозначно определены, произошедшее в результате событий пп. {{nsSub}} п. 3.2.1 Приложения № 1 к Правилам, при нахождении Застрахованного лица в ТС водителем или пассажиром и повлекшее нарушение здоровья, трудоспособности или смерть. <span class="tm-muted">При отсутствии отметки — по п. 3.1.1 Приложения № 3 к Правилам.</span></p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Застрахованное лицо</span></div><div class="tm-body"><p class="tm-p">По риску «Медицинская помощь для водителя» — лицо из <span class="tm-a">Раздела 7</span>, находившееся за рулем ТС в момент ДТП. По рискам НС — водитель и (или) пассажиры, находившиеся в ТС в момент страхового случая.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Паушальная система</span></div><div class="tm-body"><p class="tm-p">Застрахованными считаются все лица, находящиеся в ТС в момент страхового случая, без поименного указания.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Франшиза</span></div><div class="tm-body">
+    <p class="tm-p">Часть убытка, не возмещаемая Страховщиком, по п. 2.15 Правил страхования ТС. Размер и вид — <span class="tm-a">Раздел 8</span>.</p>
+    <div class="tm-types">
+      <b>условная</b><span>убыток в пределах франшизы не возмещается, свыше — возмещается полностью</span>
+      <b>безусловная</b><span>убыток всегда возмещается за вычетом франшизы</span>
+      <b>условно-безусловная</b><span>по пп. «г» п. 2.15.3 Правил страхования ТС</span>
+    </div>
+    <sc-if value="{{hasFr}}" hint-placeholder-val="{{ true }}">
+      <ul class="tm-ul" aria-label="Особые условия применения франшизы">
+        <sc-for list="{{frList}}" as="f" hint-placeholder-count="1"><li class="tm-li">{{f.t}}</li></sc-for>
+      </ul>
+    </sc-if>
+  </div></div>
+
+  <sc-if value="{{hasLim}}" hint-placeholder-val="{{ false }}">
+    <div class="tm-row"><div class="tm-term"><span class="tm-name">Лимиты возмещения</span></div><div class="tm-body">
+      <ul class="tm-ul"><sc-for list="{{limList}}" as="l" hint-placeholder-count="1"><li class="tm-li">{{l.t}}</li></sc-for></ul>
+    </div></div>
+  </sc-if>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Агрегатная / неагрегатная сумма</span></div><div class="tm-body"><p class="tm-p">Агрегатная — уменьшается на величину произведенных выплат. Неагрегатная — не уменьшается после выплат.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Индексируемая сумма</span></div><div class="tm-body"><p class="tm-p">Страховая сумма, изменяющаяся в течение срока Договора в порядке, установленном Правилами страхования ТС. Неиндексируемая — остается неизменной.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Коэффициент пропорциональности</span></div><div class="tm-body"><p class="tm-p">Отношение страховой суммы к страховой стоимости ТС (<span class="tm-a">Раздел 8</span>); применяется к выплате в порядке Правил страхования ТС.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">УТС</span><span class="tm-sub">утрата товарной стоимости</span></div><div class="tm-body"><p class="tm-p">Уменьшение стоимости ТС, вызванное ухудшением его внешнего вида и эксплуатационных качеств в результате повреждения и ремонта. Возмещается, только если в <span class="tm-a">Разделе 10</span> отмечено «с оплатой».</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">СТОА</span></div><div class="tm-body"><p class="tm-p">Станция технического обслуживания автомобилей. Официальный дилер — СТОА, уполномоченная производителем марки ТС, указанной в <span class="tm-a">Разделе 4</span>.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ЛДУ</span><span class="tm-sub">лица, допущенные к управлению</span></div><div class="tm-body"><p class="tm-p">Лица, управляющие ТС на законном основании в соответствии с условием, отмеченным в <span class="tm-a">Разделе 7</span>.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ДО</span><span class="tm-sub">дополнительное оборудование</span></div><div class="tm-body"><p class="tm-p">Оборудование, установленное на ТС сверх штатной комплектации. Застраховано, только если это отмечено в <span class="tm-a">Разделе 5</span>.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">GAP</span></div><div class="tm-body"><p class="tm-p">Риск по п. 3.2, 3.2.1 или 3.2.2 Приложения № 4 к Правилам страхования ТС. Выгодоприобретатель — Собственник ТС (<span class="tm-a">Раздел 3</span>).</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ДСАГО</span></div><div class="tm-body"><p class="tm-p">Добровольное страхование гражданской ответственности владельцев ТС по Правилам ДСАГО № 150. Действует сверх лимитов ОСАГО (п. 5.4 Правил ДСАГО).</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">Выгодоприобретатель</span></div><div class="tm-body"><p class="tm-p">Лицо, в пользу которого заключен Договор и которое получает страховую выплату; определяется по каждому риску в <span class="tm-a">Разделе 11</span>.</p></div></div>
+
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ТС</span></div><div class="tm-body"><p class="tm-p">Транспортное средство, идентифицированное в <span class="tm-a">Разделе 4</span>.</p></div></div>
+
+  <div class="tm-row" style="border-bottom: 0"><div class="tm-term"><span class="tm-name">Акцепт</span></div><div class="tm-body"><p class="tm-p">Уплата страховой премии (первого взноса) в размере и в срок по <span class="tm-a">Разделу 9</span>; с этого момента Полис является заключенным Договором (ст. 438 ГК РФ).</p></div></div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dtp":{"editor":"enum","options":["standard","exclMutual","inclMutual","osagoMutual","noOsagoMutual","osagoNoMutual","noOsagoNoMutual","ownDriver","single"],"default":"standard","section":"ДТП"},"pdtl":{"editor":"enum","options":["standard","established","unknown"],"default":"standard","section":"ПДТЛ"},"theftDocs":{"editor":"boolean","default":false,"section":"Хищение"},"theftSub":{"editor":"text","default":"«а»–«г»","section":"Хищение"},"nsSub":{"editor":"text","default":"«а»–«з»","section":"Несчастный случай"},"multiCar":{"editor":"boolean","default":true,"section":"Франшиза"},"uncondScope":{"editor":"enum","options":["none","first","fromSecond"],"default":"none","section":"Франшиза"},"glass":{"editor":"boolean","default":false,"section":"Франшиза"},"glassSum":{"editor":"text","default":"5 000","section":"Франшиза"},"untilFirst":{"editor":"boolean","default":false,"section":"Лимиты"},"perCase":{"editor":"boolean","default":false,"section":"Лимиты"},"perCaseRisks":{"editor":"text","default":"«Ущерб»","section":"Лимиты"},"perCaseSum":{"editor":"text","default":"500 000","section":"Лимиты"},"totalLimit":{"editor":"boolean","default":false,"section":"Лимиты"},"totalSum":{"editor":"text","default":"1 500 000","section":"Лимиты"},"$preview":{"width":1040,"height":2300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const b = (v, d) => (v === undefined || v === null || v === '') ? d : (v === true || v === 'true');
+    const dtp = p.dtp || 'standard';
+    const drv = 'установленный водитель другого ТС, столкновение';
+    const opts = [
+      ['standard', 'любое лицо', '—', 'типовое: пп. «а» п. 3.2.1 Приложения № 1'],
+      ['exclMutual', 'установленные третьи лица', 'исключая', '—'],
+      ['inclMutual', 'установленные третьи лица', 'включая', '—'],
+      ['osagoMutual', drv, 'включая', 'у виновных есть действующий ОСАГО'],
+      ['noOsagoMutual', drv, 'включая', 'у виновных нет действующего ОСАГО'],
+      ['osagoNoMutual', drv, 'исключая', 'у виновного есть действующий ОСАГО'],
+      ['noOsagoNoMutual', drv, 'исключая', 'у виновного нет действующего ОСАГО'],
+      ['ownDriver', 'лицо из Раздела 7', 'исключая', '—'],
+      ['single', '—', '—', 'ДТП без участия иных ТС, кроме застрахованного']
+    ];
+    const pd = p.pdtl || 'standard';
+    const pdtl = [
+      ['standard', 'типовое — пп. «е» п. 3.2.1 Приложения № 1 к Правилам страхования ТС;'],
+      ['established', 'внешнее воздействие установленных третьих лиц, связанное с уничтожением, повреждением или хищением отдельных частей (деталей, принадлежностей) ТС;'],
+      ['unknown', 'то же со стороны неустановленных третьих лиц — в пределах 25% страховой суммы и не более 2 страховых случаев за срок Договора.']
+    ];
+    const fr = [];
+    if (b(p.multiCar, true)) fr.push('Франшиза не применяется, когда событие произошло в результате нарушения ПДД установленным третьим лицом — участником ДТП или вследствие установленного компетентными органами обоюдного нарушения ПДД двумя или более участниками ДТП (включая водителя застрахованного ТС), управлявшими столкнувшимися ТС.');
+    if (p.uncondScope === 'first') fr.push('Безусловная франшиза применяется только на первый страховой случай.');
+    if (p.uncondScope === 'fromSecond') fr.push('Безусловная франшиза применяется только со второго страхового случая.');
+    if (b(p.glass, false)) fr.push('По риску «Ущерб» установлена безусловная франшиза ' + (p.glassSum || '5 000') + ' ₽ по всем стеклянным элементам ТС (лобовое, заднее, боковые стекла, стекла дверей, стеклянный люк и крыша) при отсутствии иных повреждений ТС.');
+    const lim = [];
+    if (b(p.untilFirst, false)) lim.push('Договор заключен на условиях «До первого страхового случая» в соответствии с п. 4.2 Правил страхования ТС.');
+    if (b(p.perCase, false)) lim.push('Лимит возмещения по одному страховому случаю по риску ' + (p.perCaseRisks || '«Ущерб»') + ' — ' + (p.perCaseSum || '500 000') + ' ₽.');
+    if (b(p.totalLimit, false)) lim.push('Лимит возмещения по всем страховым случаям по Договору — ' + (p.totalSum || '1 500 000') + ' ₽.');
+    const td = b(p.theftDocs, false);
+    return {
+      dtpRows: opts.map(([k, who, mutual, cond]) => ({ on: k === dtp, who, mutual, cond })),
+      pdtlRows: pdtl.map(([k, t]) => ({ on: k === pd, off: k !== pd, t })),
+      theftSub: p.theftSub || '«а»–«г»',
+      theftDocs: td, noTheftDocs: !td,
+      nsSub: p.nsSub || '«а»–«з»',
+      frList: fr.map((t) => ({ t })), hasFr: fr.length > 0,
+      limList: lim.map((t) => ({ t })), hasLim: lim.length > 0
+    };
+  }
+}
+</script>
+</body>
+</html>

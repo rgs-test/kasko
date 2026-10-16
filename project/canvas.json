@@ -1,0 +1,1198 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Annex-Full.dc.html": {
+      "h": 300,
+      "page": "page-jrvor5",
+      "title": "Приложения — акт осмотра, ДСАГО, ДМС, сервисные услуги",
+      "w": 1104,
+      "x": 2424,
+      "y": 0
+    },
+    "Annexes.dc.html": {
+      "h": 190,
+      "is_interactive": true,
+      "page": "page-jrvor5",
+      "title": "Раздел 17: Правила ТС, ДСАГО, сервисные услуги (компонент)",
+      "w": 1040,
+      "x": 1200,
+      "y": 0
+    },
+    "Ben-FL-Foreign.dc.html": {
+      "h": 640,
+      "page": "page-ctovad",
+      "title": "Выгодоприобретатель — иное лицо, физлицо, иностранный гражданин",
+      "w": 1104,
+      "x": 1200,
+      "y": 1600
+    },
+    "Ben-FL-RF.dc.html": {
+      "h": 590,
+      "page": "page-ctovad",
+      "title": "Выгодоприобретатель — иное лицо, физлицо, гражданин РФ",
+      "w": 1104,
+      "x": 1200,
+      "y": 890
+    },
+    "Ben-IP-Foreign.dc.html": {
+      "h": 690,
+      "page": "page-ctovad",
+      "title": "Выгодоприобретатель — иное лицо, ИП, иностранный гражданин",
+      "w": 1104,
+      "x": 1200,
+      "y": 3120
+    },
+    "Ben-IP-RF.dc.html": {
+      "h": 640,
+      "page": "page-ctovad",
+      "title": "Выгодоприобретатель — иное лицо, ИП, гражданин РФ",
+      "w": 1104,
+      "x": 1200,
+      "y": 2360
+    },
+    "Ben-NoRisks.dc.html": {
+      "h": 140,
+      "page": "page-ctovad",
+      "title": "Выгодоприобретатель — без доп. рисков (только 11.1)",
+      "w": 1104,
+      "x": 1200,
+      "y": 4640
+    },
+    "Ben-Owner.dc.html": {
+      "h": 360,
+      "page": "page-ctovad",
+      "title": "Выгодоприобретатель — Собственник ТС (собственник — иное лицо)",
+      "w": 1104,
+      "x": 1200,
+      "y": 410
+    },
+    "Ben-UL.dc.html": {
+      "h": 590,
+      "page": "page-ctovad",
+      "title": "Выгодоприобретатель — иное лицо, юрлицо",
+      "w": 1104,
+      "x": 1200,
+      "y": 3930
+    },
+    "Beneficiary.dc.html": {
+      "h": 290,
+      "is_interactive": true,
+      "page": "page-ctovad",
+      "title": "Выгодоприобретатель — Страхователь, все риски (компонент)",
+      "w": 1040,
+      "x": 1200,
+      "y": 0
+    },
+    "Box-Annexes.dc.html": {
+      "h": 130,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 15: приложения (компонент)",
+      "w": 1040,
+      "x": 4800,
+      "y": 2100
+    },
+    "Box-Ben-NoRisks.dc.html": {
+      "h": 204,
+      "page": "page-box7",
+      "title": "Выгодоприобретатель — без НС и сервисных услуг",
+      "w": 1104,
+      "x": 2400,
+      "y": 4000
+    },
+    "Box-Beneficiary.dc.html": {
+      "h": 260,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 10: выгодоприобретатель (компонент)",
+      "w": 1040,
+      "x": 2400,
+      "y": 2100
+    },
+    "Box-Cov-All.dc.html": {
+      "h": 964,
+      "page": "page-box7",
+      "title": "Покрытие — все варианты 1–5 и БПЛА",
+      "w": 1104,
+      "x": 1200,
+      "y": 4000
+    },
+    "Box-Cov-Min.dc.html": {
+      "h": 704,
+      "page": "page-box7",
+      "title": "Покрытие — только Вариант 1, без опций",
+      "w": 1104,
+      "x": 1200,
+      "y": 5024
+    },
+    "Box-Coverage.dc.html": {
+      "h": 820,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 7: покрытие, варианты 1–5 (компонент)",
+      "w": 1040,
+      "x": 1200,
+      "y": 2100
+    },
+    "Box-Drivers.dc.html": {
+      "h": 150,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 6: ЛДУ по ОСАГО (компонент)",
+      "w": 1040,
+      "x": 0,
+      "y": 2630
+    },
+    "Box-Marketing.dc.html": {
+      "h": 190,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Маркетинговый блок: QR и согласие на рекламу (компонент)",
+      "w": 1040,
+      "x": 4800,
+      "y": 2870
+    },
+    "Box-Other.dc.html": {
+      "h": 1560,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 14: прочие условия (компонент)",
+      "w": 1040,
+      "x": 3600,
+      "y": 2100
+    },
+    "Box-P1.dc.html": {
+      "h": 1720,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Коробка-конструктор — стр. 1",
+      "w": 1120,
+      "x": 0,
+      "y": 0
+    },
+    "Box-P2.dc.html": {
+      "h": 1625,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Коробка-конструктор — стр. 2",
+      "w": 1120,
+      "x": 1200,
+      "y": 0
+    },
+    "Box-P3.dc.html": {
+      "h": 1560,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Коробка-конструктор — стр. 3",
+      "w": 1120,
+      "x": 2400,
+      "y": 0
+    },
+    "Box-P4.dc.html": {
+      "h": 1660,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Коробка-конструктор — стр. 4",
+      "w": 1120,
+      "x": 3600,
+      "y": 0
+    },
+    "Box-P5.dc.html": {
+      "h": 1760,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Коробка-конструктор — стр. 5",
+      "w": 1120,
+      "x": 4800,
+      "y": 0
+    },
+    "Box-P6.dc.html": {
+      "h": 1600,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Коробка-конструктор — стр. 6",
+      "w": 1120,
+      "x": 6000,
+      "y": 0
+    },
+    "Box-Payment.dc.html": {
+      "h": 190,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 8: единовременно (компонент)",
+      "w": 1040,
+      "x": 1200,
+      "y": 2980
+    },
+    "Box-Pledge.dc.html": {
+      "h": 90,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 11: залогодержатель (компонент)",
+      "w": 1040,
+      "x": 2400,
+      "y": 2420
+    },
+    "Box-Purpose-UL.dc.html": {
+      "h": 534,
+      "page": "page-box7",
+      "title": "Цели использования — Страхователь юрлицо («Служебная»)",
+      "w": 1104,
+      "x": 0,
+      "y": 4000
+    },
+    "Box-Settlement.dc.html": {
+      "h": 170,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 9: СТОА без УТС (компонент)",
+      "w": 1040,
+      "x": 1200,
+      "y": 3230
+    },
+    "Box-Signatures.dc.html": {
+      "h": 520,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 16: подписи (компонент)",
+      "w": 1040,
+      "x": 4800,
+      "y": 2290
+    },
+    "Box-Term-NsExtra.dc.html": {
+      "h": 1144,
+      "page": "page-box7",
+      "title": "Прекращение — кредит, НС как дополнительная услуга",
+      "w": 1104,
+      "x": 2400,
+      "y": 5468
+    },
+    "Box-Term-Security.dc.html": {
+      "h": 1144,
+      "page": "page-box7",
+      "title": "Прекращение — кредит, страхование в обеспечение",
+      "w": 1104,
+      "x": 2400,
+      "y": 4264
+    },
+    "Box-Termination.dc.html": {
+      "h": 900,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 13: прекращение (компонент)",
+      "w": 1040,
+      "x": 2400,
+      "y": 2790
+    },
+    "Box-Terms-OwnDriver.dc.html": {
+      "h": 1564,
+      "page": "page-box7",
+      "title": "Термины — ДТП по вине ЛДУ, Вариант 2",
+      "w": 1104,
+      "x": 6000,
+      "y": 4000
+    },
+    "Box-Terms-Typical.dc.html": {
+      "h": 1214,
+      "page": "page-box7",
+      "title": "Термины — типовые ДТП и НС (определения не выводятся)",
+      "w": 1104,
+      "x": 6000,
+      "y": 5624
+    },
+    "Box-Terms.dc.html": {
+      "h": 1500,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Термины (компонент)",
+      "w": 1040,
+      "x": 6000,
+      "y": 2100
+    },
+    "Box-Territory.dc.html": {
+      "h": 160,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Раздел 12: территория РФ (компонент)",
+      "w": 1040,
+      "x": 2400,
+      "y": 2570
+    },
+    "Box-Vehicle.dc.html": {
+      "h": 470,
+      "is_interactive": true,
+      "page": "page-box7",
+      "title": "Разделы 4–5: ТС и цели (компонент)",
+      "w": 1040,
+      "x": 0,
+      "y": 2100
+    },
+    "Cov-Damage-Theft.dc.html": {
+      "h": 900,
+      "page": "page-rc64fr",
+      "title": "Покрытие — Ущерб + Хищение, расширенные опции, все доп. риски",
+      "w": 1104,
+      "x": 1200,
+      "y": 880
+    },
+    "Cov-Minimal.dc.html": {
+      "h": 460,
+      "page": "page-rc64fr",
+      "title": "Покрытие — только КАСКО, без опций и доп. рисков",
+      "w": 1104,
+      "x": 1200,
+      "y": 2540
+    },
+    "Cov-TotalLoss.dc.html": {
+      "h": 520,
+      "page": "page-rc64fr",
+      "title": "Покрытие — Ущерб-полная гибель + Хищение (опции недоступны), только ДСАГО",
+      "w": 1104,
+      "x": 1200,
+      "y": 1900
+    },
+    "Coverage.dc.html": {
+      "h": 760,
+      "is_interactive": true,
+      "page": "page-rc64fr",
+      "title": "Раздел 8: КАСКО + опции, ДСАГО, НС, сервис (компонент)",
+      "w": 1040,
+      "x": 1200,
+      "y": 0
+    },
+    "Drivers.dc.html": {
+      "h": 190,
+      "is_interactive": true,
+      "title": "Водители — список (компонент)",
+      "w": 1040,
+      "x": 4761,
+      "y": 18
+    },
+    "Drv-Any.dc.html": {
+      "h": 160,
+      "title": "Водители — любой водитель от N лет, стаж от N лет",
+      "w": 1104,
+      "x": 4761,
+      "y": 328
+    },
+    "Holder-FL-Foreign.dc.html": {
+      "h": 330,
+      "title": "Страхователь — физлицо, иностранный гражданин",
+      "w": 1104,
+      "x": 1209,
+      "y": 358
+    },
+    "Holder-IP-Foreign.dc.html": {
+      "h": 500,
+      "title": "Страхователь — ИП, иностранный гражданин",
+      "w": 1104,
+      "x": 1209,
+      "y": 1378
+    },
+    "Holder-IP-RF.dc.html": {
+      "h": 450,
+      "title": "Страхователь — ИП, гражданин РФ",
+      "w": 1104,
+      "x": 1209,
+      "y": 808
+    },
+    "Holder-UL.dc.html": {
+      "h": 360,
+      "title": "Страхователь — юрлицо",
+      "w": 1104,
+      "x": 1209,
+      "y": 1998
+    },
+    "Holder.dc.html": {
+      "h": 220,
+      "is_interactive": true,
+      "title": "Страхователь — физлицо, гражданин РФ (компонент)",
+      "w": 1040,
+      "x": 1209,
+      "y": 18
+    },
+    "Insp-Act.dc.html": {
+      "h": 240,
+      "page": "page-ctovad",
+      "title": "Осмотр — по акту, спутниковая система",
+      "w": 1104,
+      "x": 6096,
+      "y": 290
+    },
+    "Insp-None.dc.html": {
+      "h": 230,
+      "page": "page-ctovad",
+      "title": "Осмотр не производился, противоугонных систем нет",
+      "w": 1104,
+      "x": 6096,
+      "y": 650
+    },
+    "Inspection.dc.html": {
+      "h": 170,
+      "is_interactive": true,
+      "page": "page-ctovad",
+      "title": "Раздел 15: осмотр не производился, штатная сигнализация (компонент)",
+      "w": 1040,
+      "x": 6096,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "h": 1771,
+      "is_interactive": true,
+      "title": "Полис-оферта КАСКО",
+      "w": 1120,
+      "x": 9,
+      "y": -5
+    },
+    "Note-Ben-Rewritten.dc.html": {
+      "h": 64,
+      "page": "page-ctovad",
+      "title": "Сноска: текст п. 11.2 (Выгодоприобретатель) переписан",
+      "w": 440,
+      "x": -440,
+      "y": 158
+    },
+    "Note-Box-Purpose.dc.html": {
+      "h": 84,
+      "page": "page-box7",
+      "title": "Сноска: тех. текст целей использования (ФЛ/ИП — личная, ЮЛ — служебная)",
+      "w": 440,
+      "x": -440,
+      "y": 1190
+    },
+    "Note-Coverage-Rewritten.dc.html": {
+      "h": 64,
+      "page": "page-rc64fr",
+      "title": "Сноска: текст основных рисков (раздел 8) переписан",
+      "w": 440,
+      "x": -440,
+      "y": 242
+    },
+    "Note-Dsago-Rewritten.dc.html": {
+      "h": 64,
+      "page": "page-rc64fr",
+      "title": "Сноска: текст ДСАГО (раздел 8.2) переписан",
+      "w": 440,
+      "x": -440,
+      "y": 514
+    },
+    "Note-Holder-Partial.dc.html": {
+      "h": 84,
+      "title": "Сноска: в разделе 2 указаны не все данные Страхователя",
+      "w": 440,
+      "x": -431,
+      "y": 721
+    },
+    "Note-Ns-Rewritten.dc.html": {
+      "h": 64,
+      "page": "page-rc64fr",
+      "title": "Сноска: текст НС (раздел 8.2) переписан",
+      "w": 440,
+      "x": -440,
+      "y": 584
+    },
+    "Note-Offer-Rewritten.dc.html": {
+      "h": 64,
+      "title": "Сноска: исходный текст оферты переписан",
+      "w": 440,
+      "x": -431,
+      "y": 232
+    },
+    "Note-Payment-Rewritten.dc.html": {
+      "h": 64,
+      "page": "page-rc64fr",
+      "title": "Сноска: текст раздела 9 «Срок и порядок уплаты» переписан",
+      "w": 440,
+      "x": -440,
+      "y": 921
+    },
+    "Note-Purpose-Original.dc.html": {
+      "h": 64,
+      "title": "Сноска: текст раздела 6 «Цели использования ТС» не переписан",
+      "w": 440,
+      "x": -431,
+      "y": 1540
+    },
+    "Note-Service-Rewritten.dc.html": {
+      "h": 64,
+      "page": "page-rc64fr",
+      "title": "Сноска: текст сервисных услуг (раздел 8.2) переписан",
+      "w": 440,
+      "x": -440,
+      "y": 654
+    },
+    "Note-Settlement-Rewritten.dc.html": {
+      "h": 64,
+      "page": "page-rc64fr",
+      "title": "Сноска: текст раздела 10 «Варианты выплаты» переписан",
+      "w": 440,
+      "x": -440,
+      "y": 1113
+    },
+    "Note-Term-Rewritten.dc.html": {
+      "h": 64,
+      "title": "Сноска: текст раздела 1 «Срок страхования» переписан",
+      "w": 440,
+      "x": -431,
+      "y": 515
+    },
+    "Note-Uts-Added.dc.html": {
+      "h": 64,
+      "page": "page-rc64fr",
+      "title": "Сноска: добавлен текст про УТС (раздел 10)",
+      "w": 440,
+      "x": -440,
+      "y": 1218
+    },
+    "Other-Min.dc.html": {
+      "h": 1480,
+      "page": "page-k71iim",
+      "title": "Прочие условия — без НС, ДСАГО и приложений",
+      "w": 1104,
+      "x": 3648,
+      "y": 0
+    },
+    "Other-PEP.dc.html": {
+      "h": 1845,
+      "page": "page-k71iim",
+      "title": "Прочие условия — ПДЛ, рассрочка, агент, «за счет кого следует», ДМС",
+      "w": 1104,
+      "x": 2424,
+      "y": 0
+    },
+    "Other.dc.html": {
+      "h": 1656,
+      "is_interactive": true,
+      "page": "page-k71iim",
+      "title": "Раздел 16: не ПДЛ, с НС и ДСАГО (компонент)",
+      "w": 1040,
+      "x": 1200,
+      "y": 0
+    },
+    "Owner-FL-Foreign.dc.html": {
+      "h": 370,
+      "title": "Собственник — иное лицо, физлицо, иностранный гражданин",
+      "w": 1104,
+      "x": 2393,
+      "y": 668
+    },
+    "Owner-FL-RF.dc.html": {
+      "h": 320,
+      "title": "Собственник — иное лицо, физлицо, гражданин РФ",
+      "w": 1104,
+      "x": 2393,
+      "y": 228
+    },
+    "Owner-IP-Foreign.dc.html": {
+      "h": 460,
+      "title": "Собственник — иное лицо, ИП, иностранный гражданин",
+      "w": 1104,
+      "x": 2393,
+      "y": 1688
+    },
+    "Owner-IP-RF.dc.html": {
+      "h": 410,
+      "title": "Собственник — иное лицо, ИП, гражданин РФ",
+      "w": 1104,
+      "x": 2393,
+      "y": 1158
+    },
+    "Owner-UL.dc.html": {
+      "h": 390,
+      "title": "Собственник — иное лицо, юрлицо",
+      "w": 1104,
+      "x": 2393,
+      "y": 2268
+    },
+    "Owner.dc.html": {
+      "h": 90,
+      "is_interactive": true,
+      "title": "Раздел 3: Собственник = Страхователь (свернут, одна строка)",
+      "w": 1040,
+      "x": 2393,
+      "y": 18
+    },
+    "Page2.dc.html": {
+      "h": 1420,
+      "is_interactive": true,
+      "page": "page-rc64fr",
+      "title": "Полис-оферта КАСКО — стр. 2",
+      "w": 1120,
+      "x": 0,
+      "y": 0
+    },
+    "Page3.dc.html": {
+      "h": 1381,
+      "is_interactive": true,
+      "page": "page-ctovad",
+      "title": "Полис-оферта КАСКО — стр. 3",
+      "w": 1120,
+      "x": 0,
+      "y": 0
+    },
+    "Page4.dc.html": {
+      "h": 1760,
+      "is_interactive": true,
+      "page": "page-k71iim",
+      "title": "Полис-оферта КАСКО — стр. 4",
+      "w": 1120,
+      "x": 0,
+      "y": 0
+    },
+    "Page5.dc.html": {
+      "h": 1580,
+      "is_interactive": true,
+      "page": "page-jrvor5",
+      "title": "Полис-оферта КАСКО — стр. 5",
+      "w": 1120,
+      "x": 0,
+      "y": 0
+    },
+    "Page6.dc.html": {
+      "h": 2440,
+      "is_interactive": true,
+      "page": "page-terms6",
+      "title": "Полис-оферта КАСКО — стр. 6",
+      "w": 1120,
+      "x": 0,
+      "y": 0
+    },
+    "Pay-Inst-2.dc.html": {
+      "h": 440,
+      "page": "page-rc64fr",
+      "title": "Уплата — в рассрочку, 2 взноса",
+      "w": 1104,
+      "x": 2424,
+      "y": 1090
+    },
+    "Pay-Inst-4.dc.html": {
+      "h": 520,
+      "page": "page-rc64fr",
+      "title": "Уплата — в рассрочку, 4 взноса",
+      "w": 1104,
+      "x": 2424,
+      "y": 450
+    },
+    "Payment.dc.html": {
+      "h": 330,
+      "is_interactive": true,
+      "page": "page-rc64fr",
+      "title": "Раздел 9: единовременно (компонент)",
+      "w": 1040,
+      "x": 2424,
+      "y": 0
+    },
+    "Pledge-Bank.dc.html": {
+      "h": 204,
+      "page": "page-ctovad",
+      "title": "Залогодержатель — ТС в залоге у банка",
+      "w": 1104,
+      "x": 2424,
+      "y": 210
+    },
+    "Pledge.dc.html": {
+      "h": 90,
+      "is_interactive": true,
+      "page": "page-ctovad",
+      "title": "Раздел 12: ТС не в залоге (компонент)",
+      "w": 1040,
+      "x": 2424,
+      "y": 0
+    },
+    "ServiceInfo.dc.html": {
+      "h": 560,
+      "is_interactive": true,
+      "page": "page-jrvor5",
+      "title": "Сервисная информация (без номера раздела)",
+      "w": 1040,
+      "x": 1200,
+      "y": 310
+    },
+    "Set-Calc-CB.dc.html": {
+      "h": 520,
+      "page": "page-rc64fr",
+      "title": "Выплата — калькуляция по единой методике ЦБ, с УТС",
+      "w": 1104,
+      "x": 3648,
+      "y": 2020
+    },
+    "Set-Dealer-InName.dc.html": {
+      "h": 620,
+      "page": "page-rc64fr",
+      "title": "Выплата — ремонт у оф. дилера, дилер в названии продукта, с УТС",
+      "w": 1104,
+      "x": 3648,
+      "y": 680
+    },
+    "Set-STOA.dc.html": {
+      "h": 480,
+      "page": "page-rc64fr",
+      "title": "Выплата — ремонт на СТОА по направлению Страховщика, без УТС",
+      "w": 1104,
+      "x": 3648,
+      "y": 1420
+    },
+    "Settlement.dc.html": {
+      "h": 260,
+      "is_interactive": true,
+      "page": "page-rc64fr",
+      "title": "Раздел 10: ремонт у оф. дилера, без УТС (компонент)",
+      "w": 1040,
+      "x": 3648,
+      "y": 0
+    },
+    "Sign-IP.dc.html": {
+      "h": 600,
+      "page": "page-jrvor5",
+      "title": "Подписи — Страхователь ИП",
+      "w": 1104,
+      "x": 3648,
+      "y": 990
+    },
+    "Sign-UL.dc.html": {
+      "h": 600,
+      "page": "page-jrvor5",
+      "title": "Подписи — Страхователь юрлицо",
+      "w": 1104,
+      "x": 2424,
+      "y": 990
+    },
+    "Signatures.dc.html": {
+      "h": 520,
+      "is_interactive": true,
+      "page": "page-jrvor5",
+      "title": "Раздел 18 + Информация о Страхователе: физлицо (компонент)",
+      "w": 1040,
+      "x": 1200,
+      "y": 990
+    },
+    "Term-30days.dc.html": {
+      "h": 800,
+      "page": "page-ctovad",
+      "title": "Прекращение — отказ в течение 30 дней",
+      "w": 1104,
+      "x": 4872,
+      "y": 1860
+    },
+    "Term-Credit.dc.html": {
+      "h": 900,
+      "page": "page-ctovad",
+      "title": "Прекращение — кредитный договор (353-ФЗ), п. 14.5 о досрочном погашении",
+      "w": 1104,
+      "x": 4872,
+      "y": 840
+    },
+    "Termination.dc.html": {
+      "h": 720,
+      "is_interactive": true,
+      "page": "page-ctovad",
+      "title": "Раздел 14: отказ в срок по Указанию 3854-У, без кредита (компонент)",
+      "w": 1040,
+      "x": 4872,
+      "y": 0
+    },
+    "Terms-Full.dc.html": {
+      "h": 2560,
+      "page": "page-terms6",
+      "title": "Термины — ДТП с ОСАГО, ПДТЛ неустановленных лиц, хищение с документами, франшиза и лимиты",
+      "w": 1104,
+      "x": 2424,
+      "y": 0
+    },
+    "Terms-Min.dc.html": {
+      "h": 2380,
+      "page": "page-terms6",
+      "title": "Термины — ДТП без участия иных ТС, ПДТЛ установленных лиц",
+      "w": 1104,
+      "x": 3648,
+      "y": 0
+    },
+    "Terms.dc.html": {
+      "h": 2300,
+      "is_interactive": true,
+      "page": "page-terms6",
+      "title": "Термины: полный список, ДТП и ПДТЛ типовые (компонент)",
+      "w": 1040,
+      "x": 1200,
+      "y": 0
+    },
+    "Terr-CIS.dc.html": {
+      "h": 250,
+      "page": "page-ctovad",
+      "title": "Территория — РФ и страны СНГ, с сервисными услугами",
+      "w": 1104,
+      "x": 3648,
+      "y": 630
+    },
+    "Terr-Excl.dc.html": {
+      "h": 220,
+      "page": "page-ctovad",
+      "title": "Территория — РФ за исключением регионов, без сервисных услуг",
+      "w": 1104,
+      "x": 3648,
+      "y": 290
+    },
+    "Territory.dc.html": {
+      "h": 170,
+      "is_interactive": true,
+      "page": "page-ctovad",
+      "title": "Раздел 13: Российская Федерация + сервисные услуги (компонент)",
+      "w": 1040,
+      "x": 3648,
+      "y": 0
+    },
+    "Veh-Agreement.dc.html": {
+      "h": 760,
+      "title": "ТС — электромобиль, ДО по доп. соглашению",
+      "w": 1104,
+      "x": 3577,
+      "y": 4098
+    },
+    "Veh-Bus.dc.html": {
+      "h": 710,
+      "title": "ТС — автобус, дизельный, ПТС",
+      "w": 1104,
+      "x": 3577,
+      "y": 2438
+    },
+    "Veh-Moto.dc.html": {
+      "h": 710,
+      "title": "ТС — мотоцикл, бензиновый, ЭПСМ (условное поле скрыто)",
+      "w": 1104,
+      "x": 3577,
+      "y": 3268
+    },
+    "Veh-Petrol-PTS.dc.html": {
+      "h": 710,
+      "title": "ТС — легковой, бензиновый, ПТС, ДО по спецификации",
+      "w": 1104,
+      "x": 3577,
+      "y": 778
+    },
+    "Veh-Truck.dc.html": {
+      "h": 710,
+      "title": "ТС — грузовой, дизельный, СТС",
+      "w": 1104,
+      "x": 3577,
+      "y": 1608
+    },
+    "Vehicle.dc.html": {
+      "h": 640,
+      "is_interactive": true,
+      "title": "Разделы 4–6 — электромобиль, ЭПТС, без ДО (компонент)",
+      "w": 1040,
+      "x": 3577,
+      "y": 18
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-13T09:12:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "benVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-ctovad",
+      "text": "Вариативность раздела 11 «Выгодоприобретатель»",
+      "w": 240,
+      "x": 1200,
+      "y": -260
+    },
+    "boxComponents": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-box7",
+      "text": "Компоненты «Коробки-конструктора»",
+      "w": 240,
+      "x": 0,
+      "y": 1880
+    },
+    "boxPages": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-box7",
+      "text": "Полис-оферта КАСКО «Коробка-конструктор»",
+      "w": 240,
+      "x": 0,
+      "y": -260
+    },
+    "boxVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-box7",
+      "text": "Вариативность «Коробки-конструктора»",
+      "w": 240,
+      "x": 0,
+      "y": 3780
+    },
+    "covVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-rc64fr",
+      "text": "Вариативность раздела 8 «Страховое покрытие»",
+      "w": 240,
+      "x": 1200,
+      "y": -260
+    },
+    "drvVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "text": "Вариативность раздела «Водители»",
+      "w": 240,
+      "x": 4761,
+      "y": -260
+    },
+    "holderVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "text": "Вариативность блока «Страхователь»",
+      "w": 240,
+      "x": 1209,
+      "y": -260
+    },
+    "inspVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-ctovad",
+      "text": "Вариативность раздела 15 «Осмотр и противоугонные средства»",
+      "w": 240,
+      "x": 6096,
+      "y": -260
+    },
+    "otherVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-k71iim",
+      "text": "Вариативность раздела 16 «Прочие условия»",
+      "w": 240,
+      "x": 1200,
+      "y": -260
+    },
+    "ownerVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "text": "Вариативность блока «Собственник ТС»",
+      "w": 240,
+      "x": 2393,
+      "y": -260
+    },
+    "p5Variants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-jrvor5",
+      "text": "Стр. 5: приложения, сервисная информация, подписи",
+      "w": 240,
+      "x": 1200,
+      "y": -260
+    },
+    "payVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-rc64fr",
+      "text": "Вариативность раздела 9 «Срок и порядок уплаты»",
+      "w": 240,
+      "x": 2424,
+      "y": -260
+    },
+    "pledgeVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-ctovad",
+      "text": "Вариативность раздела 12 «Залогодержатель»",
+      "w": 240,
+      "x": 2424,
+      "y": -260
+    },
+    "setVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-rc64fr",
+      "text": "Вариативность раздела 10 «Варианты выплаты»",
+      "w": 240,
+      "x": 3648,
+      "y": -260
+    },
+    "termVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-ctovad",
+      "text": "Вариативность раздела 14 «Прекращение договора»",
+      "w": 240,
+      "x": 4872,
+      "y": -260
+    },
+    "termsVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-terms6",
+      "text": "Вариативность блока «Термины»",
+      "w": 240,
+      "x": 1200,
+      "y": -260
+    },
+    "terrVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "page": "page-ctovad",
+      "text": "Вариативность раздела 13 «Территория страхования»",
+      "w": 240,
+      "x": 3648,
+      "y": -260
+    },
+    "vehVariants": {
+      "kind": "title1",
+      "maxW": 1104,
+      "text": "Вариативность разделов 4–6 «ТС, ДО, цели»",
+      "w": 240,
+      "x": 3577,
+      "y": -260
+    }
+  },
+  "order": [
+    "Beneficiary.dc.html",
+    "Ben-Owner.dc.html",
+    "Ben-FL-RF.dc.html",
+    "Ben-FL-Foreign.dc.html",
+    "Ben-IP-RF.dc.html",
+    "Ben-IP-Foreign.dc.html",
+    "Ben-UL.dc.html",
+    "Ben-NoRisks.dc.html",
+    "Page3.dc.html",
+    "Pledge.dc.html",
+    "Pledge-Bank.dc.html",
+    "Territory.dc.html",
+    "Terr-Excl.dc.html",
+    "Terr-CIS.dc.html",
+    "Termination.dc.html",
+    "Term-Credit.dc.html",
+    "Term-30days.dc.html",
+    "Inspection.dc.html",
+    "Insp-Act.dc.html",
+    "Insp-None.dc.html",
+    "Page4.dc.html",
+    "Other.dc.html",
+    "Other-PEP.dc.html",
+    "Other-Min.dc.html",
+    "Page5.dc.html",
+    "Annexes.dc.html",
+    "Annex-Full.dc.html",
+    "ServiceInfo.dc.html",
+    "Signatures.dc.html",
+    "Sign-UL.dc.html",
+    "Sign-IP.dc.html",
+    "Page6.dc.html",
+    "Terms.dc.html",
+    "Terms-Full.dc.html",
+    "Terms-Min.dc.html",
+    "Note-Ben-Rewritten.dc.html",
+    "Box-P1.dc.html",
+    "Box-P2.dc.html",
+    "Box-P3.dc.html",
+    "Box-P4.dc.html",
+    "Box-P5.dc.html",
+    "Box-P6.dc.html",
+    "Note-Box-Purpose.dc.html",
+    "Box-Vehicle.dc.html",
+    "Box-Drivers.dc.html",
+    "Box-Coverage.dc.html",
+    "Box-Payment.dc.html",
+    "Box-Settlement.dc.html",
+    "Box-Beneficiary.dc.html",
+    "Box-Pledge.dc.html",
+    "Box-Territory.dc.html",
+    "Box-Termination.dc.html",
+    "Box-Other.dc.html",
+    "Box-Annexes.dc.html",
+    "Box-Signatures.dc.html",
+    "Box-Marketing.dc.html",
+    "Box-Terms.dc.html",
+    "Box-Purpose-UL.dc.html",
+    "Box-Cov-All.dc.html",
+    "Box-Cov-Min.dc.html",
+    "Box-Ben-NoRisks.dc.html",
+    "Box-Term-Security.dc.html",
+    "Box-Term-NsExtra.dc.html",
+    "Box-Terms-OwnDriver.dc.html",
+    "Box-Terms-Typical.dc.html",
+    "Main.dc.html",
+    "Holder.dc.html",
+    "Holder-FL-Foreign.dc.html",
+    "Holder-IP-RF.dc.html",
+    "Holder-IP-Foreign.dc.html",
+    "Holder-UL.dc.html",
+    "Owner.dc.html",
+    "Owner-FL-RF.dc.html",
+    "Owner-FL-Foreign.dc.html",
+    "Owner-IP-RF.dc.html",
+    "Owner-IP-Foreign.dc.html",
+    "Owner-UL.dc.html",
+    "Vehicle.dc.html",
+    "Veh-Petrol-PTS.dc.html",
+    "Veh-Truck.dc.html",
+    "Veh-Bus.dc.html",
+    "Veh-Moto.dc.html",
+    "Veh-Agreement.dc.html",
+    "Drivers.dc.html",
+    "Drv-Any.dc.html",
+    "Note-Offer-Rewritten.dc.html",
+    "Note-Term-Rewritten.dc.html",
+    "Note-Holder-Partial.dc.html",
+    "Note-Purpose-Original.dc.html",
+    "Page2.dc.html",
+    "Coverage.dc.html",
+    "Cov-Damage-Theft.dc.html",
+    "Cov-TotalLoss.dc.html",
+    "Cov-Minimal.dc.html",
+    "Payment.dc.html",
+    "Pay-Inst-4.dc.html",
+    "Pay-Inst-2.dc.html",
+    "Settlement.dc.html",
+    "Set-Dealer-InName.dc.html",
+    "Set-STOA.dc.html",
+    "Set-Calc-CB.dc.html",
+    "Note-Coverage-Rewritten.dc.html",
+    "Note-Dsago-Rewritten.dc.html",
+    "Note-Ns-Rewritten.dc.html",
+    "Note-Service-Rewritten.dc.html",
+    "Note-Payment-Rewritten.dc.html",
+    "Note-Settlement-Rewritten.dc.html",
+    "Note-Uts-Added.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Page 1"
+    },
+    {
+      "id": "page-rc64fr",
+      "name": "Page 2"
+    },
+    {
+      "id": "page-ctovad",
+      "name": "Page 3"
+    },
+    {
+      "id": "page-k71iim",
+      "name": "Page 4"
+    },
+    {
+      "id": "page-jrvor5",
+      "name": "Page 5"
+    },
+    {
+      "id": "page-terms6",
+      "name": "Page 6"
+    },
+    {
+      "id": "page-box7",
+      "name": "Коробка-конструктор"
+    }
+  ],
+  "title": "Шапка полиса-оферты КАСКО"
+}

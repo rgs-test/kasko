@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Коробка-конструктор — раздел 12: территория</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="sec-terr" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">12</span>
+    <h2 id="sec-terr" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Территория страхования</h2>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 10px; padding: 16px 24px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E8DFE1">
+    <span style="font-size: 18px; line-height: 1.35; font-weight: 700; color: #2A1F22">Российская Федерация</span>
+    <sc-if value="{{service}}" hint-placeholder-val="{{ true }}">
+      <div style="height: 1px; background: #EFE2E5"></div>
+      <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #4A4244; font-family: Arial, sans-serif">По риску «Сервисные услуги» территория страхования — в соответствии с <span style="color: #A0172F; font-weight: 700">Приложением № 1</span> к Полису-оферте.</p>
+    </sc-if>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"service": {"editor": "boolean", "default": true, "section": "Территория"}, "$preview": {"width": 1040, "height": 160}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const sv = this.props.service;
+    return { service: !(sv === false || sv === 'false') };
+  }
+}
+</script>
+</body>
+</html>

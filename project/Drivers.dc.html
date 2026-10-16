@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Раздел 7 — Водители</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="sec-drivers" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
+    <span style="align-self: center; width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">7</span>
+    <h2 id="sec-drivers" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Водители</h2>
+    <span style="font-size: 13px; color: #6E6366">Лица, допущенные к управлению ТС на законном основании</span>
+  </div>
+  <div role="group" aria-label="Допуск к управлению" style="box-sizing: border-box; width: 100%; padding: 2px 16px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 20px; font-size: 13px; color: #2A2324; white-space: nowrap">
+    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isList}}" onChange="{{pickList}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Список</label>
+    <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isUnlimited}}" onChange="{{pickUnlimited}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Без ограничений</label>
+    <div style="display: flex; align-items: center; gap: 6px">
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isAny}}" onChange="{{pickAny}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Любой водитель от</label>
+      <input type="text" aria-label="Минимальный возраст, лет" value="{{minAge}}" readonly="" style="width: 36px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #8C7F78; background: transparent; font: inherit; color: #1F1A1B; text-align: center; outline-color: #A0172F"><span>лет, стаж от</span>
+      <input type="text" aria-label="Минимальный стаж, лет" value="{{minExp}}" readonly="" style="width: 36px; box-sizing: border-box; padding: 0 2px; border: 0; border-bottom: 1px solid #8C7F78; background: transparent; font: inherit; color: #1F1A1B; text-align: center; outline-color: #A0172F"><span>лет</span>
+    </div>
+  </div>
+  <sc-if value="{{isList}}" hint-placeholder-val="{{ true }}">
+    <div role="table" aria-label="Водители" style="display: flex; flex-direction: column">
+      <div role="row" style="display: grid; grid-template-columns: 24px minmax(0, 1.5fr) minmax(0, 0.8fr) minmax(0, 0.8fr) minmax(0, 1.9fr); column-gap: 16px; align-items: baseline; padding: 0 0 6px"><span role="columnheader" style="font-size: 11px; line-height: 1.3; color: #6E6366">№</span><span role="columnheader" style="font-size: 11px; line-height: 1.3; color: #6E6366">ФИО</span><span role="columnheader" style="font-size: 11px; line-height: 1.3; color: #6E6366">Дата рождения</span><span role="columnheader" style="font-size: 11px; line-height: 1.3; color: #6E6366">Стаж вождения с</span><span role="columnheader" style="font-size: 11px; line-height: 1.3; color: #6E6366">Водительское удостоверение (серия, номер, страна выдачи)</span></div>
+      <div role="row" style="display: grid; grid-template-columns: 24px minmax(0, 1.5fr) minmax(0, 0.8fr) minmax(0, 0.8fr) minmax(0, 1.9fr); column-gap: 16px; align-items: baseline; padding: 7px 0; border-top: 1px solid #EDE6E1"><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B; color: #6E6366">1</span><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B; font-weight: 600">Иванов Иван Иванович</span><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B">14.03.1985</span><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B">10.04.2013</span><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B">99 00 000000, Российская Федерация</span></div>
+      <div role="row" style="display: grid; grid-template-columns: 24px minmax(0, 1.5fr) minmax(0, 0.8fr) minmax(0, 0.8fr) minmax(0, 1.9fr); column-gap: 16px; align-items: baseline; padding: 7px 0; border-top: 1px solid #EDE6E1"><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B; color: #6E6366">2</span><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B; font-weight: 600">Иванова Анна Петровна</span><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B">22.07.1988</span><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B">02.09.2017</span><span role="cell" style="font-size: 13px; line-height: 1.35; color: #1F1A1B">99 00 000001, Российская Федерация</span></div>
+    </div>
+  </sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["list","unlimited","any"],"default":"list","section":"Водители"},"$preview":{"width":1040,"height":190}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mode: null };
+  }
+  renderVals() {
+    const m = this.state.mode ?? this.props.mode ?? 'list';
+    const set = (x) => () => this.setState({ mode: x });
+    const any = m === 'any';
+    return {
+      isList: m === 'list', isUnlimited: m === 'unlimited', isAny: any,
+      pickList: set('list'), pickUnlimited: set('unlimited'), pickAny: set('any'),
+      minAge: any ? '23' : '', minExp: any ? '3' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>

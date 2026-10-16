@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Раздел 18 — Страховщик и информация о Страхователе</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+.sg-col{display:flex;flex-direction:column;gap:12px;min-width:0}
+.sg-head{display:flex;align-items:center;gap:12px;min-height:28px}
+.sg-h2{margin:0;font-size:20px;font-weight:700;color:#1F1A1B}
+.sg-card{flex:1 1 auto;box-sizing:border-box;padding:0;display:flex;flex-direction:column;border-top:1px solid #EFE2E5;padding-top:8px}
+.sg-row{display:grid;grid-template-columns:120px minmax(0,1fr);column-gap:12px;align-items:baseline;padding:5px 0;border-bottom:1px solid #EFE2E5}
+.sg-l{font-size:11px;line-height:1.35;color:#6E6366}
+.sg-v{font-size:12px;line-height:1.45;color:#1F1A1B}
+.sg-sign{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);column-gap:14px;align-items:end}
+.sg-f{display:flex;flex-direction:column;gap:3px;min-width:0}
+.sg-fv{min-height:20px;padding-bottom:3px;border-bottom:1px solid #8C7F78;font-size:13px;font-weight:700;color:#1F1A1B}
+</style>
+</helmet>
+<div style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px">
+  <section class="sg-col" aria-labelledby="sec-insurer">
+    <div class="sg-head">
+      <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">18</span>
+      <h2 id="sec-insurer" class="sg-h2">Страховщик</h2>
+    </div>
+    <div class="sg-card">
+      <span style="padding-bottom: 6px; font-size: 14px; font-weight: 700; color: #1F1A1B">ПАО СК «Росгосстрах»</span>
+      <div class="sg-row"><span class="sg-l">Лицензия</span><span class="sg-v">СИ № 0001, СЛ № 0001</span></div>
+      <div class="sg-row"><span class="sg-l">ИНН / ОГРН</span><span class="sg-v">7707067683 / 1027739049689</span></div>
+      <div class="sg-row"><span class="sg-l">Юридический адрес</span><span class="sg-v">121059, г. Москва, ул. Киевская, д. 7, к. 1</span></div>
+      <div class="sg-row"><span class="sg-l">Почтовый адрес</span><span class="sg-v">119991, Российская Федерация, г. Москва — 59, ГСП-1, ул. Киевская, д. 7, к. 1</span></div>
+      <div class="sg-row"><span class="sg-l">Контакты</span><span class="sg-v">Тел. +7 (495) 783-24-24, факс +7 (495) 783-24-34, rgs@rgs.ru, www.rgs.ru</span></div>
+      <div class="sg-row" style="border-bottom: 0"><span class="sg-l">Банковские реквизиты</span><span class="sg-v">р/с 40701810500160000472 в ПАО Банк «ВТБ», к/с 30101810700000000187, БИК 044525187, ИНН 7707067683, КПП 502701001\997950001</span></div>
+    </div>
+    <div class="sg-sign">
+      <div class="sg-f"><span class="sg-l">Должность</span><span class="sg-fv">Директор департамента продаж</span></div>
+      <div class="sg-f"><span class="sg-l">Ф. И. О.</span><span class="sg-fv">Петров П. П.</span></div>
+      <div class="sg-f"><span class="sg-l">подпись, М. П.</span><span class="sg-fv"></span></div>
+    </div>
+    <span style="font-size: 12px; color: #6E6366">Дата выдачи Полиса-оферты: <b style="color: #1F1A1B; font-weight: 700">07.10.2026</b></span>
+  </section>
+
+  <section class="sg-col" aria-labelledby="sec-holder-info">
+    <div class="sg-head">
+      <h2 id="sec-holder-info" class="sg-h2">Информация о Страхователе</h2>
+    </div>
+    <div class="sg-card">
+      <span style="padding-bottom: 6px; font-size: 14px; font-weight: 700; color: #1F1A1B">{{name}}</span>
+      <sc-for list="{{rows}}" as="r" hint-placeholder-count="5">
+        <div class="sg-row"><span class="sg-l">{{r.label}}</span><span class="sg-v">{{r.value}}</span></div>
+      </sc-for>
+    </div>
+    <div class="sg-sign">
+      <div class="sg-f"><span class="sg-l">{{signRoleLabel}}</span><span class="sg-fv">{{signRole}}</span></div>
+      <div class="sg-f"><span class="sg-l">Ф. И. О.</span><span class="sg-fv">{{signName}}</span></div>
+      <div class="sg-f"><span class="sg-l">{{signLabel}}</span><span class="sg-fv"></span></div>
+    </div>
+    <span style="font-size: 12px; color: #6E6366">С условиями Полиса-оферты ознакомлен и согласен</span>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"holderType":{"editor":"enum","options":["person","ip","legal"],"default":"person","section":"Страхователь"},"$preview":{"width":1040,"height":520}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const t = this.props.holderType || 'person';
+    const data = {
+      person: {
+        name: 'Иванов Иван Иванович',
+        rows: [['Дата рождения', '14.03.1985'], ['Паспорт', '45 00 000000, выдан 20.03.2005'], ['Адрес регистрации', '125000, г. Москва, ул. Примерная, д. 1, кв. 1'], ['Телефон', '+7 900 000-00-00'], ['Email', 'ivanov@example.ru']],
+        roleLabel: 'Статус', role: 'Страхователь', sign: 'Иванов И. И.', label: 'подпись'
+      },
+      ip: {
+        name: 'ИП Иванов Иван Иванович',
+        rows: [['ИНН / ОГРНИП', '770000000000 / 300000000000000'], ['Дата регистрации', '01.02.2015'], ['Адрес регистрации', '125000, г. Москва, ул. Примерная, д. 1, кв. 1'], ['Телефон', '+7 900 000-00-00'], ['Email', 'ip.ivanov@example.ru']],
+        roleLabel: 'Статус', role: 'Индивидуальный предприниматель', sign: 'Иванов И. И.', label: 'подпись, М. П. (при наличии)'
+      },
+      legal: {
+        name: 'ООО «Пример»',
+        rows: [['ИНН / КПП', '7700000000 / 770001001'], ['ОГРН', '1000000000000'], ['Юридический адрес', '125000, г. Москва, ул. Примерная, д. 10'], ['Телефон', '+7 495 000-00-00'], ['Email', 'info@example.ru']],
+        roleLabel: 'Должность', role: 'Генеральный директор', sign: 'Иванов И. И.', label: 'подпись, М. П.'
+      }
+    };
+    const d = data[t] || data.person;
+    return {
+      name: d.name,
+      rows: d.rows.map(([l, v]) => ({ label: l, value: v })),
+      signRoleLabel: d.roleLabel, signRole: d.role, signName: d.sign, signLabel: d.label
+    };
+  }
+}
+</script>
+</body>
+</html>

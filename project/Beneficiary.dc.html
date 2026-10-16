@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Раздел 4 — Выгодоприобретатель</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="sec-benef" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 10px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">11</span>
+    <h2 id="sec-benef" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Выгодоприобретатель</h2>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div role="group" aria-labelledby="benef-41" style="display: flex; flex-wrap: wrap; align-items: center; column-gap: 20px; font-size: 13px; color: #2A2324; white-space: nowrap">
+      <span id="benef-41" style="font-weight: 700; color: #1F1A1B">11.1. По рискам страхования ТС:</span>
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isHolder}}" onChange="{{pickHolder}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Страхователь</label>
+      <sc-if value="{{showOwnerOption}}" hint-placeholder-val="{{ false }}">
+        <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isOwner}}" onChange="{{pickOwner}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Собственник ТС</label>
+      </sc-if>
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isAccount}}" onChange="{{pickAccount}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">За счет кого следует</label>
+      <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isOther}}" onChange="{{pickOther}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Иное лицо:</label>
+    </div>
+
+    <sc-if value="{{isOther}}" hint-placeholder-val="{{ false }}">
+      <div style="box-sizing: border-box; width: 100%; padding: 2px 16px; border: 1px solid #ECE4DE; border-radius: 10px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A2324; white-space: nowrap">
+        <div role="group" aria-label="Тип лица выгодоприобретателя" style="display: flex; align-items: center; column-gap: 16px">
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isPerson}}" onChange="{{pickPerson}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Физическое лицо</label>
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isIP}}" onChange="{{pickIP}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Индивидуальный предприниматель</label>
+          <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isLegal}}" onChange="{{pickLegal}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Юридическое лицо</label>
+        </div>
+        <sc-if value="{{showCitizenship}}" hint-placeholder-val="{{ true }}">
+          <span aria-hidden="true" style="flex: none; width: 1px; height: 18px; background: #D9CEC6"></span>
+          <div role="group" aria-labelledby="benef-citizenship" style="display: flex; align-items: center; column-gap: 16px">
+            <span id="benef-citizenship" style="color: #5A5052">Гражданство:</span>
+            <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isRu}}" onChange="{{pickRu}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">РФ</label>
+            <label style="display: flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer"><input type="checkbox" checked="{{isForeign}}" onChange="{{pickForeign}}" style="width: 16px; height: 16px; margin: 0; accent-color: #A0172F; cursor: pointer">Иностранный гражданин</label>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display: flex; flex-direction: column; border-top: 1px solid #E4DCD6">
+        <sc-if value="{{isPerson}}" hint-placeholder-val="{{ true }}">
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">ФИО</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B; font-weight: 600">Сидоров Сергей Сергеевич</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Дата рождения</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">11.11.1980</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Место рождения</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">г. Казань</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Документ, удостоверяющий личность</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">{{doc}}</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Дата выдачи</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">25.12.2000</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">ИНН/СНИЛС</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">160000000000</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 3; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Кем выдан</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">{{issuer}}</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Телефон (мобильный)</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">+7 900 222-22-22</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 3; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Адрес регистрации</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">420000, г. Казань, ул. Примерная, д. 7, кв. 8</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Email</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">sidorov@example.ru</span></div></div>
+        </sc-if>
+        <sc-if value="{{isIP}}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Наименование ИП</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B; font-weight: 600">ИП Сидоров Сергей Сергеевич</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Дата рождения</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">11.11.1980</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Место рождения</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">г. Казань</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Документ, удостоверяющий личность</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">{{doc}}</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Дата выдачи</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">25.12.2000</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">ИНН/СНИЛС</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">160000000000</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Кем выдан</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">{{issuer}}</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">ОГРНИП</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">318160000000000</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Дата гос. регистрации</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">05.06.2018</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 4; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Адрес регистрации</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">420000, г. Казань, ул. Примерная, д. 7, кв. 8</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Сайт (при наличии)</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">www.example.ru</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Телефон (мобильный)</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">+7 900 222-22-22</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Email</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">ip.sidorov@example.ru</span></div></div>
+        </sc-if>
+        <sc-if value="{{isLegal}}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Наименование юрлица</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B; font-weight: 600">АО «Пример-Лизинг»</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">КПП</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">770101001</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">ИНН</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">7701000000</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Документ, подтверждающий регистрацию</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">Лист записи ЕГРЮЛ, № 0000000000</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Дата выдачи</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">12.09.2012</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">ОГРН</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">1127700000000</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Кем выдан</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">[Регистрирующий орган]</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Дата гос. регистрации</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">12.09.2012</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Сайт (при наличии)</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">www.example.ru</span></div></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Адрес места нахождения</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">115000, г. Москва, ул. Примерная, д. 10, офис 5</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Телефон</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">+7 495 000-00-00</span></div><div style="padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Email</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">info@example.ru</span></div></div>
+        </sc-if>
+        <sc-if value="{{showResidency}}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-bottom: 1px solid #EDE6E1; box-shadow: inset 3px 0 0 #A0172F; background: #FDF8F2; padding-left: 14px"><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Документ, дающий право на проживание в РФ</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">Вид на жительство 82 0000000</span></div><div style="grid-column: span 2; padding: 7px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E6366">Срок пребывания</span><span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">с 20.03.2025 по 20.03.2030</span></div></div>
+        </sc-if>
+      </div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{hasRisks}}" hint-placeholder-val="{{ true }}">
+    <div style="margin-top: 4px; display: flex; flex-direction: column; border-top: 1px solid #E4DCD6">
+      <sc-for list="{{risks}}" as="r" hint-placeholder-count="5">
+        <div style="display: grid; grid-template-columns: 34% minmax(0, 1fr); column-gap: 20px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid #EDE6E1">
+          <span style="font-size: 13px; line-height: 1.4; font-weight: 600; color: #1F1A1B">{{r.title}}</span>
+          <span style="font-size: 13px; line-height: 1.4; color: #1F1A1B">{{r.text}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"beneficiary":{"editor":"enum","options":["holder","owner","account","other"],"default":"holder","section":"Выгодоприобретатель"},"ownerIsOther":{"editor":"boolean","default":false,"section":"Выгодоприобретатель"},"benType":{"editor":"enum","options":["person","ip","legal"],"default":"person","section":"Выгодоприобретатель"},"citizenship":{"editor":"enum","options":["ru","foreign"],"default":"ru","section":"Выгодоприобретатель"},"riskMed":{"editor":"boolean","default":true,"section":"Застрахованные риски"},"riskGap":{"editor":"boolean","default":true,"section":"Застрахованные риски"},"riskService":{"editor":"boolean","default":true,"section":"Застрахованные риски"},"riskNs":{"editor":"boolean","default":true,"section":"Застрахованные риски"},"riskDsago":{"editor":"boolean","default":true,"section":"Застрахованные риски"},"$preview":{"width":1040,"height":290}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { who: null, type: null, citizen: null };
+  }
+  flag(v, d) {
+    if (v === undefined || v === null || v === '') return d;
+    return !(v === false || v === 'false');
+  }
+  renderVals() {
+    const ownerIsOther = this.flag(this.props.ownerIsOther, false);
+    let who = this.state.who ?? this.props.beneficiary ?? 'holder';
+    if (who === 'owner' && !ownerIsOther) who = 'holder';
+    const t = this.state.type ?? this.props.benType ?? 'person';
+    const c = this.state.citizen ?? this.props.citizenship ?? 'ru';
+    const isOther = who === 'other';
+    const isLegal = t === 'legal';
+    const isForeign = !isLegal && c === 'foreign';
+    const all = [
+      { on: this.flag(this.props.riskMed, true), name: 'По риску «Медицинская помощь для водителя»:', text: 'Застрахованное лицо (допущенное к управлению ТС и находящееся за рулем в момент ДТП)' },
+      { on: this.flag(this.props.riskGap, true), name: 'По риску «GAP»:', text: 'Собственник ТС' },
+      { on: this.flag(this.props.riskService, true), name: 'По риску «Сервисные услуги»:', text: 'Страхователь / Собственник ТС / Водитель' },
+      { on: this.flag(this.props.riskNs, true), name: 'По рискам «Несчастный случай»:', text: 'Застрахованные лица, а в случае их смерти — наследники (паушальная система)' },
+      { on: this.flag(this.props.riskDsago, true), name: 'По риску «ДСАГО»:', text: 'Потерпевший и иные лица, имеющие право на возмещение вреда' }
+    ];
+    const risks = all.filter((x) => x.on).map((x, i) => ({ title: '11.' + (i + 2) + '. ' + x.name, text: x.text }));
+    const setWho = (x) => () => this.setState({ who: x });
+    const setType = (x) => () => this.setState({ type: x });
+    const setCitizen = (x) => () => this.setState({ citizen: x });
+    return {
+      showOwnerOption: ownerIsOther,
+      isHolder: who === 'holder',
+      isOwner: who === 'owner',
+      isAccount: who === 'account',
+      isOther: isOther,
+      pickHolder: setWho('holder'),
+      pickOwner: setWho('owner'),
+      pickAccount: setWho('account'),
+      pickOther: setWho('other'),
+      isPerson: t === 'person',
+      isIP: t === 'ip',
+      isLegal: isLegal,
+      pickPerson: setType('person'),
+      pickIP: setType('ip'),
+      pickLegal: setType('legal'),
+      showCitizenship: !isLegal,
+      isRu: c !== 'foreign',
+      isForeign: c === 'foreign',
+      pickRu: setCitizen('ru'),
+      pickForeign: setCitizen('foreign'),
+      showResidency: isOther && isForeign,
+      doc: isForeign ? 'Паспорт №000000000' : 'Паспорт 92 00 000000',
+      issuer: isForeign ? '[Орган, выдавший документ]' : 'Отделом внутренних дел Вахитовского района г. Казани',
+      risks: risks,
+      hasRisks: risks.length > 0
+    };
+  }
+}
+</script>
+</body>
+</html>

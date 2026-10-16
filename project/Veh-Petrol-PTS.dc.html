@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>ТС — легковой, бензиновый, ПТС, ДО по спецификации</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1104px; box-sizing: border-box; padding: 32px; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B">
+  <dc-import name="Vehicle" category="passenger" engine="petrol" doc="pts" equipment="spec" hint-size="1040px,646px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1104,"height":710}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

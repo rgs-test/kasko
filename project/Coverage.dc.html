@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Раздел 8 — Страховое покрытие</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="sec-cover" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">8</span>
+    <h2 id="sec-cover" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Страховое покрытие</h2>
+  </div>
+
+  <div style="box-sizing: border-box; width: 100%; padding: 8px 16px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 28px; row-gap: 4px; font-size: 13px; color: #2A2324">
+    <span><span style="color: #6E6366">Страховая стоимость ТС:</span> <b style="font-weight: 700">{{value}}</b></span>
+    <span><span style="color: #6E6366">Коэффициент пропорциональности:</span> <b style="font-weight: 700">{{ratio}}</b></span>
+    <span><span style="color: #6E6366">Валюта договора:</span> <b style="font-weight: 700">руб.</b></span>
+  </div>
+
+  <div style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.25fr) minmax(0, 0.8fr); column-gap: 16px; padding: 0; font-size: 11px; line-height: 1.3; color: #6E6366">
+    <span>Страховой риск / опция</span><span>Страховая сумма</span><span>Тип страховой суммы</span><span>Франшиза</span><span style="text-align: right">Страховая премия</span>
+  </div>
+
+  <div role="table" aria-label="Основные риски и опции" style="box-sizing: border-box; padding: 0; display: flex; flex-direction: column">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 8px 0 6px">
+      <span style="font-size: 14px; font-weight: 700; color: #A0172F">8.1. Основные риски и опции</span>
+      <span style="font-size: 13px; color: #6E6366">Итого по разделу: <b style="color: #1F1A1B; font-weight: 700">{{mainTotal}}</b></span>
+    </div>
+    <sc-for list="{{mainRows}}" as="r" hint-placeholder-count="2">
+      <div role="row" style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.25fr) minmax(0, 0.8fr); column-gap: 16px; align-items: baseline; padding: 8px 0; border-top: 1px solid #EFE2E5; font-size: 13px; line-height: 1.35">
+        <div role="cell" style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-weight: 700">{{r.title}}</span><sc-if value="{{r.hasDesc}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; line-height: 1.4; color: #3F3638">{{r.desc}}</span></sc-if><span style="font-size: 11px; line-height: 1.35; color: #6E6366">{{r.ref}}</span></div>
+        <span role="cell">{{r.sum}}</span><span role="cell">{{r.type}}</span><span role="cell">{{r.fr}}</span><span role="cell" style="text-align: right; font-weight: 600; white-space: nowrap">{{r.prem}}</span>
+      </div>
+    </sc-for>
+    <sc-if value="{{hasOptions}}" hint-placeholder-val="{{ true }}">
+      <div style="padding: 10px 0 4px; border-top: 1px solid #EFE2E5; font-size: 11px; line-height: 1.3; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; color: #8A7479">Опции к рискам КАСКО / Ущерб · <span style="text-transform: none; letter-spacing: 0; color: #A0172F; font-weight: 700">Приложение № 7 к Правилам страхования ТС</span></div>
+      <sc-for list="{{optRows}}" as="r" hint-placeholder-count="3">
+        <div role="row" style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.25fr) minmax(0, 0.8fr); column-gap: 16px; align-items: baseline; padding: 6px 0; border-top: 1px dashed #EFE2E5; font-size: 13px; line-height: 1.35">
+          <div role="cell" style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-weight: 600">{{r.title}}</span><span style="font-size: 11px; line-height: 1.35; color: #6E6366">{{r.ref}}</span></div>
+          <span role="cell">{{r.sum}}</span><span role="cell" style="text-align: center">{{r.type}}</span><span role="cell">{{r.fr}}</span><span role="cell" style="text-align: right; font-weight: 600; white-space: nowrap">{{r.prem}}</span>
+        </div>
+      </sc-for>
+    </sc-if>
+  </div>
+
+  <div role="table" aria-label="Дополнительные риски и опции" style="box-sizing: border-box; padding: 0; display: flex; flex-direction: column">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 8px 0 6px">
+      <span style="font-size: 14px; font-weight: 700; color: #A0172F">8.2. Дополнительные риски и опции</span>
+      <span style="font-size: 13px; color: #6E6366">Итого по разделу: <b style="color: #1F1A1B; font-weight: 700">{{addTotal}}</b></span>
+    </div>
+    <sc-if value="{{hasAdd}}" hint-placeholder-val="{{ true }}">
+      <sc-for list="{{addRows}}" as="r" hint-placeholder-count="3">
+        <div role="row" style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.25fr) minmax(0, 0.8fr); column-gap: 16px; align-items: baseline; padding: 8px 0; border-top: 1px solid #EFE2E5; font-size: 13px; line-height: 1.35">
+          <div role="cell" style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="font-weight: 700">{{r.title}}</span><sc-if value="{{r.hasBadge}}" hint-placeholder-val="{{ false }}"><span style="padding: 1px 8px; border-radius: 999px; background: #A0172F; color: #FFFFFF; font-size: 11px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2px">{{r.badge}}</span></sc-if></div><sc-if value="{{r.hasDesc}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; line-height: 1.4; color: #3F3638">{{r.desc}}</span></sc-if><sc-if value="{{r.hasNote}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; line-height: 1.35; color: #1F1A1B"><span style="color: #6E6366">{{r.noteLabel}}</span> <b style="font-weight: 600">{{r.note}}</b></span></sc-if><span style="font-size: 11px; line-height: 1.35; color: #6E6366">{{r.ref}}</span></div>
+          <span role="cell">{{r.sum}}</span><span role="cell">{{r.type}}</span><span role="cell">{{r.fr}}</span><span role="cell" style="text-align: right; font-weight: 600; white-space: nowrap">{{r.prem}}</span>
+        </div>
+      </sc-for>
+    </sc-if>
+    <sc-if value="{{noAdd}}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 8px 0; border-top: 1px solid #EFE2E5; font-size: 13px; color: #6E6366">Не застрахованы</div>
+    </sc-if>
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 10px 0 6px; margin-top: 2px; border-top: 1px solid #E4D6D9; font-size: 13px; line-height: 1.35">
+      <span style="font-weight: 600; color: #1F1A1B">ИТОГО страховая премия по Договору</span>
+      <span style="font-weight: 700; color: #1F1A1B; white-space: nowrap">{{total}}</span>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"base":{"editor":"enum","options":["kasko","damage","totalLoss"],"default":"kasko","section":"8.1 Основные риски"},"theft":{"editor":"boolean","default":false,"section":"8.1 Основные риски"},"aggregate":{"editor":"boolean","default":false,"section":"8.1 Основные риски"},"indexed":{"editor":"boolean","default":false,"section":"8.1 Основные риски"},"franchise":{"editor":"enum","options":["none","unconditional","conditional","condUncond"],"default":"unconditional","section":"8.1 Основные риски"},"hydro":{"editor":"enum","options":["none","hydro","hydroPlus"],"default":"hydro","section":"8.1 Опции (Прил. 7)"},"techno":{"editor":"boolean","default":false,"section":"8.1 Опции (Прил. 7)"},"fire":{"editor":"boolean","default":true,"section":"8.1 Опции (Прил. 7)"},"selfMove":{"editor":"boolean","default":false,"section":"8.1 Опции (Прил. 7)"},"drone":{"editor":"boolean","default":false,"section":"8.1 Опции (Прил. 7)"},"weapon":{"editor":"boolean","default":false,"section":"8.1 Опции (Прил. 7)"},"electronic":{"editor":"boolean","default":true,"section":"8.1 Опции (Прил. 7)"},"optTotalLoss":{"editor":"boolean","default":false,"section":"8.1 Опции (Прил. 7)"},"dsago":{"editor":"boolean","default":true,"section":"8.2 Дополнительные"},"ns":{"editor":"boolean","default":true,"section":"8.2 Дополнительные"},"gap":{"editor":"boolean","default":false,"section":"8.2 Дополнительные"},"med":{"editor":"boolean","default":false,"section":"8.2 Дополнительные"},"service":{"editor":"enum","options":["none","list","variant"],"default":"list","section":"8.2 Дополнительные"},"$preview":{"width":1040,"height":760}}'>
+class Component extends DCLogic {
+  flag(v, d) {
+    if (v === undefined || v === null || v === '') return d;
+    return v === true || v === 'true';
+  }
+  rub(n) {
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
+  }
+  renderVals() {
+    const p = this.props;
+    const f = (k, d) => this.flag(p[k], d);
+    const base = p.base || 'kasko';
+    const rub = (n) => this.rub(n);
+    const sumVal = rub(2500000);
+    const sumType = (f('aggregate', false) ? 'Агрегатная' : 'Неагрегатная') + ', ' + (f('indexed', false) ? 'индексируемая' : 'неиндексируемая');
+    const frMap = { none: 'Не установлена', unconditional: 'Безусловная 15 000 ₽', conditional: 'Условная 15 000 ₽', condUncond: 'Условно-безусловная 15 000 ₽' };
+    const fr = frMap[p.franchise || 'unconditional'] || frMap.unconditional;
+    const R = 'Прил. № 1 к Правилам страхования ТС';
+    const R7 = 'Прил. № 7';
+
+    const DMG = 'ДТП, падение дерева, град, камень в стекло, царапина на парковке и др.';
+    const THF = 'Если машину угнали или пытались угнать';
+    const bases = {
+      kasko: { title: 'КАСКО (Ущерб + Хищение)', desc: DMG + '; ' + THF.charAt(0).toLowerCase() + THF.slice(1), ref: 'пп. «а»–«з» п. 3.2.1 и пп. «а»–«г» п. 3.2.2 ' + R, prem: 52300 },
+      damage: { title: 'Ущерб', desc: DMG, ref: 'п. 3.2.1 ' + R, prem: 38000 },
+      totalLoss: { title: 'Ущерб — полная гибель ТС', desc: '', ref: 'п. 2.18, 2.19 Правил страхования ТС', prem: 21000 }
+    };
+    const b = bases[base] || bases.kasko;
+    const main = [{ title: b.title, desc: b.desc, ref: b.ref, sum: sumVal, type: sumType, fr: fr, n: b.prem }];
+    if (base !== 'kasko' && f('theft', false)) {
+      main.push({ title: 'Хищение', desc: THF, ref: 'п. 3.2.2 ' + R + ' · только в дополнение к риску «' + b.title + '»', sum: sumVal, type: sumType, fr: 'Не установлена', n: 9500 });
+    }
+
+    const optAllowed = base === 'kasko' || base === 'damage';
+    const opt = [];
+    const add = (on, title, ref, n) => { if (on) opt.push({ title, ref, sum: 'в пределах страховой суммы', type: '—', fr: 'Как по основному риску', n }); };
+    const hydro = p.hydro || 'hydro';
+    if (optAllowed) {
+      add(hydro === 'hydro', 'Гидроудар', 'п. 3.2.1 ' + R7, 1200);
+      add(hydro === 'hydroPlus', 'Гидроудар+', 'п. 3.2.3 ' + R7, 1900);
+      add(f('techno', false), 'Техногенная авария', 'п. 3.2.2 ' + R7, 600);
+      add(f('fire', true), 'Самовозгорание ТС', 'п. 3.2.6 ' + R7, 900);
+      add(f('selfMove', false), 'Самопроизвольное движение ТС', 'п. 3.2.7 ' + R7, 400);
+      add(f('drone', false), 'Падение (воздействие) БПЛА', 'п. 3.2.4 ' + R7, 1500);
+      add(f('weapon', false), 'Воздействие оружия', 'п. 3.2.5 ' + R7, 1300);
+      add(f('electronic', true), 'Защита электронного управления ТС', 'п. 3.2.8 ' + R7, 2400);
+      add(f('optTotalLoss', false), 'Полная гибель ТС', 'п. 2.18, 2.19 Правил; ' + R7, 3200);
+    }
+
+    const extra = [];
+    if (f('dsago', true)) extra.push({ title: 'ДСАГО', desc: 'Вред, причиненный другим людям и их имуществу, сверх лимитов ОСАГО', ref: 'п. 3.1 Правил страхования гражданской ответственности владельцев ТС (ДСАГО)', sum: rub(1000000), type: 'Неагрегатная', fr: 'В размере страховых сумм по ОСАГО (п. 5.4 Правил ДСАГО)', n: 4500 });
+    if (f('ns', true)) extra.push({ title: 'Несчастный случай (НС)', desc: 'Инвалидность или смерть водителя и пассажиров', ref: 'п. 3.1.1 Прил. № 3 · паушальная система', sum: rub(500000), type: 'Агрегатная, неиндексируемая', fr: 'Не установлена', n: 2000 });
+    if (f('gap', false)) extra.push({ title: 'GAP', ref: 'п. 3.2 Прил. № 4 к Правилам страхования ТС', sum: rub(500000), type: 'Агрегатная', fr: 'Не установлена', n: 5400 });
+    if (f('med', false)) extra.push({ title: 'Медицинская помощь для водителя', ref: 'по Программе ДМС', sum: rub(300000), type: 'Агрегатная', fr: 'Не установлена', n: 1800 });
+    const service = p.service || 'list';
+    if (service === 'list') extra.push({ title: 'Сервисные услуги', desc: 'Эвакуатор, аварийный комиссар, шиномонтаж, зарядка, доставка топлива', badge: '24/7', ref: 'пп. «а»–«в» п. 3.1 Прил. № 2', sum: 'по Прил. № 1 к Полису', type: 'Неагрегатная', fr: 'Не установлена', n: 6200, noteLabel: 'Номер сервисной карты:', note: '7100 0001 2345' });
+    if (service === 'variant') extra.push({ title: 'Сервисные услуги — Вариант 2', desc: 'Эвакуатор, аварийный комиссар, шиномонтаж, зарядка, доставка топлива', badge: '24/7', ref: 'Состав услуг — Приложение № 1 к Полису', sum: 'по Прил. № 1 к Полису', type: 'по Прил. № 1 к Полису', fr: 'Не установлена', n: 6200, noteLabel: 'Номер сервисной карты:', note: '7100 0001 2345' });
+
+    const fmt = (rows) => rows.map((r) => Object.assign({ noteLabel: '', note: '', desc: '', badge: '' }, r, { prem: rub(r.n), hasNote: !!r.note, hasDesc: !!r.desc, hasBadge: !!r.badge }));
+    const sum = (rows) => rows.reduce((s, r) => s + r.n, 0);
+    const mainN = sum(main) + sum(opt);
+    const addN = sum(extra);
+    return {
+      value: rub(2500000),
+      ratio: '1,00',
+      mainRows: fmt(main),
+      optRows: fmt(opt),
+      hasOptions: opt.length > 0,
+      addRows: fmt(extra),
+      hasAdd: extra.length > 0,
+      noAdd: extra.length === 0,
+      mainTotal: rub(mainN),
+      addTotal: addN ? rub(addN) : '—',
+      total: rub(mainN + addN)
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Раздел 13 — Территория страхования</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="sec-terr" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">13</span>
+    <h2 id="sec-terr" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Территория страхования</h2>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 10px; padding: 16px 24px; border-radius: 16px; background: #FDFAFB; border: 1px solid #F4EBED">
+    <span style="font-size: 18px; line-height: 1.35; font-weight: 700; color: #2A1F22">{{territory}}</span>
+    <sc-if value="{{hasExcl}}" hint-placeholder-val="{{ false }}">
+      <span style="font-size: 13px; line-height: 1.5; color: #4A3D40">{{excl}}</span>
+    </sc-if>
+    <sc-if value="{{service}}" hint-placeholder-val="{{ true }}">
+      <div style="height: 1px; background: #EFE2E5"></div>
+      <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #4A4244; font-family: Arial, sans-serif">По риску «Сервисные услуги» территория страхования — в соответствии с <span style="color: #A0172F; font-weight: 700">Приложением № 1</span> к Полису-оферте.</p>
+    </sc-if>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"territory":{"editor":"enum","options":["rf","rfNoConflict","rfExclRegions","rfCis"],"default":"rf","section":"Территория"},"service":{"editor":"boolean","default":true,"section":"Территория"},"$preview":{"width":1040,"height":170}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const t = this.props.territory || 'rf';
+    const sv = this.props.service;
+    const map = {
+      rf: ['Российская Федерация', ''],
+      rfNoConflict: ['Российская Федерация', 'за исключением территорий вооруженных конфликтов, войн, чрезвычайных положений'],
+      rfExclRegions: ['Российская Федерация', 'за исключением: Донецкой Народной Республики, Луганской Народной Республики, Запорожской и Херсонской областей, Республики Крым, г. Севастополя'],
+      rfCis: ['Российская Федерация, Абхазия, Азербайджан, Армения, Беларусь, Казахстан, Кыргызстан, Молдова, Таджикистан, Узбекистан', '']
+    };
+    const v = map[t] || map.rf;
+    return {
+      territory: v[0],
+      excl: v[1],
+      hasExcl: !!v[1],
+      service: !(sv === false || sv === 'false')
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Коробка-конструктор — раздел 8: уплата премии</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="sec-pay" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">8</span>
+    <h2 id="sec-pay" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Срок и порядок уплаты страховой премии</h2>
+  </div>
+  <div style="display: flex; align-items: center; gap: 24px; padding: 18px 24px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E8DFE1">
+    <div style="flex: none; width: 300px; display: flex; flex-direction: column; gap: 2px">
+      <span style="font-size: 12px; line-height: 1.3; color: #6E5A5F">Страховая премия, единовременно</span>
+      <span style="font-size: 22px; line-height: 1.2; font-weight: 700; color: #2A1F22; white-space: nowrap">{{sum}}</span>
+      <span style="font-size: 13px; line-height: 1.3; color: #4A3D40">уплатить до <b style="color: #A0172F; font-weight: 700">{{date}}</b> включительно</span>
+    </div>
+    <span aria-hidden="true" style="flex: none; align-self: stretch; width: 1px; background: #EFE2E5"></span>
+    <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+      <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #4A4244; font-family: Arial, sans-serif">Страховая премия уплачивается единовременно, рассрочка не предусмотрена.</p>
+      <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #4A4244; font-family: Arial, sans-serif">Если премия не уплачена или уплачена не полностью до указанной даты, Договор считается незаключенным и страхование не действует. Деньги, внесенные сверх суммы премии или после этой даты, признаются ошибочным платежом и подлежат возврату.</p>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"sum": {"editor": "text", "default": "45 600 ₽", "section": "Уплата премии"}, "date": {"editor": "text", "default": "09.10.2026", "section": "Уплата премии"}, "$preview": {"width": 1040, "height": 190}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { sum: this.props.sum || '45 600 ₽', date: this.props.date || '09.10.2026' };
+  }
+}
+</script>
+</body>
+</html>

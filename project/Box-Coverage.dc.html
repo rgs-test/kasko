@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Коробка-конструктор — раздел 7: страховое покрытие</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0}
+.cv-box{width:13px;height:13px;border-radius:3px;border:1.5px solid #A0172F;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.cv-box-on{background:#A0172F}
+.cv-badge{padding:1px 8px;border-radius:999px;background:#A0172F;color:#FFFFFF;font-size:11px;line-height:1.5;font-weight:700;letter-spacing:.2px}
+.cv-mand{padding:1px 8px;border-radius:999px;background:#F8F5F2;border:1px solid #ECE4DE;color:#2A2324;font-size:11px;line-height:1.4;font-weight:600}
+</style>
+</helmet>
+<section aria-labelledby="sec-cover" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <span style="width: 28px; height: 28px; border-radius: 8px; background: #A0172F; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">7</span>
+    <h2 id="sec-cover" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Страховое покрытие</h2>
+  </div>
+  <div style="box-sizing: border-box; width: 100%; padding: 8px 16px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 28px; row-gap: 4px; font-size: 13px; color: #2A2324">
+    <span><span style="color: #6E6366">Страховая стоимость ТС:</span> <b style="font-weight: 700">{{value}}</b></span>
+    <span><span style="color: #6E6366">Коэффициент пропорциональности:</span> <b style="font-weight: 700">1,00</b></span>
+    <span><span style="color: #6E6366">Валюта договора:</span> <b style="font-weight: 700">руб.</b></span>
+  </div>
+  <div style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 0.8fr); column-gap: 16px; font-size: 11px; line-height: 1.3; color: #6E6366">
+    <span>Страховой риск</span><span>Страховая сумма</span><span>Тип страховой суммы</span><span>Франшиза</span><span style="text-align: right">Страховая премия</span>
+  </div>
+  <div role="table" aria-label="Основные риски" style="display: flex; flex-direction: column">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 8px 0 6px">
+      <span style="font-size: 14px; font-weight: 700; color: #A0172F">7.1. Основные риски</span>
+      <span style="font-size: 13px; color: #6E6366">Итого по разделу: <b style="color: #1F1A1B; font-weight: 700">{{mainTotal}}</b></span>
+    </div>
+    <div style="padding: 6px 0 4px; border-top: 1px solid #EFE2E5; font-size: 11px; line-height: 1.3; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; color: #8A7479">Ущерб — застрахованные варианты</div>
+    <sc-for list="{{varRows}}" as="r" hint-placeholder-count="5">
+        <div role="row" style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 0.8fr); column-gap: 16px; align-items: baseline; padding: 8px 0; border-top: 1px solid #EFE2E5; font-size: 13px; line-height: 1.35">
+          <div role="cell" style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><sc-if value="{{r.isVar}}" hint-placeholder-val="{{ true }}"><sc-if value="{{r.on}}" hint-placeholder-val="{{ true }}"><span class="cv-box cv-box-on"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-6"></path></svg></span></sc-if><sc-if value="{{r.off}}" hint-placeholder-val="{{ false }}"><span class="cv-box"></span></sc-if></sc-if><span style="font-weight: 700">{{r.title}}</span><sc-if value="{{r.hasBadge}}" hint-placeholder-val="{{ false }}"><span class="cv-badge">{{r.badge}}</span></sc-if><sc-if value="{{r.hasMand}}" hint-placeholder-val="{{ false }}"><span class="cv-mand">обязательный риск</span></sc-if></div><sc-if value="{{r.hasDesc}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; line-height: 1.4; color: #3F3638">{{r.desc}}</span></sc-if><sc-if value="{{r.hasNote}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; line-height: 1.35; color: #1F1A1B"><span style="color: #6E6366">Номер сервисной карты:</span> <b style="font-weight: 600">{{r.note}}</b></span></sc-if><sc-if value="{{r.hasRef}}" hint-placeholder-val="{{ true }}"><span style="font-size: 11px; line-height: 1.35; color: #A0172F; font-weight: 600">{{r.ref}}</span></sc-if></div>
+          <sc-if value="{{r.on}}" hint-placeholder-val="{{ true }}"><span role="cell">{{r.sum}}</span><span role="cell">{{r.type}}</span><span role="cell">{{r.fr}}</span><span role="cell" style="text-align: right; font-weight: 600; white-space: nowrap">{{r.prem}}</span></sc-if>
+          <sc-if value="{{r.off}}" hint-placeholder-val="{{ false }}"><span role="cell" style="grid-column: span 4; color: #8A7F81">Не застраховано</span></sc-if>
+        </div>
+    </sc-for>
+    <sc-for list="{{mandRows}}" as="r" hint-placeholder-count="2">
+        <div role="row" style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 0.8fr); column-gap: 16px; align-items: baseline; padding: 8px 0; border-top: 1px solid #EFE2E5; font-size: 13px; line-height: 1.35">
+          <div role="cell" style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><sc-if value="{{r.isVar}}" hint-placeholder-val="{{ true }}"><sc-if value="{{r.on}}" hint-placeholder-val="{{ true }}"><span class="cv-box cv-box-on"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-6"></path></svg></span></sc-if><sc-if value="{{r.off}}" hint-placeholder-val="{{ false }}"><span class="cv-box"></span></sc-if></sc-if><span style="font-weight: 700">{{r.title}}</span><sc-if value="{{r.hasBadge}}" hint-placeholder-val="{{ false }}"><span class="cv-badge">{{r.badge}}</span></sc-if><sc-if value="{{r.hasMand}}" hint-placeholder-val="{{ false }}"><span class="cv-mand">обязательный риск</span></sc-if></div><sc-if value="{{r.hasDesc}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; line-height: 1.4; color: #3F3638">{{r.desc}}</span></sc-if><sc-if value="{{r.hasNote}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; line-height: 1.35; color: #1F1A1B"><span style="color: #6E6366">Номер сервисной карты:</span> <b style="font-weight: 600">{{r.note}}</b></span></sc-if><sc-if value="{{r.hasRef}}" hint-placeholder-val="{{ true }}"><span style="font-size: 11px; line-height: 1.35; color: #A0172F; font-weight: 600">{{r.ref}}</span></sc-if></div>
+          <sc-if value="{{r.on}}" hint-placeholder-val="{{ true }}"><span role="cell">{{r.sum}}</span><span role="cell">{{r.type}}</span><span role="cell">{{r.fr}}</span><span role="cell" style="text-align: right; font-weight: 600; white-space: nowrap">{{r.prem}}</span></sc-if>
+          <sc-if value="{{r.off}}" hint-placeholder-val="{{ false }}"><span role="cell" style="grid-column: span 4; color: #8A7F81">Не застраховано</span></sc-if>
+        </div>
+    </sc-for>
+  </div>
+  <div role="table" aria-label="Опциональные риски" style="display: flex; flex-direction: column">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 8px 0 6px">
+      <span style="font-size: 14px; font-weight: 700; color: #A0172F">7.2. Опциональные риски</span>
+      <span style="font-size: 13px; color: #6E6366">Итого по разделу: <b style="color: #1F1A1B; font-weight: 700">{{addTotal}}</b></span>
+    </div>
+    <sc-if value="{{hasAdd}}" hint-placeholder-val="{{ true }}">
+    <sc-for list="{{addRows}}" as="r" hint-placeholder-count="3">
+        <div role="row" style="display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 0.8fr); column-gap: 16px; align-items: baseline; padding: 8px 0; border-top: 1px solid #EFE2E5; font-size: 13px; line-height: 1.35">
+          <div role="cell" style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><sc-if value="{{r.isVar}}" hint-placeholder-val="{{ true }}"><sc-if value="{{r.on}}" hint-placeholder-val="{{ true }}"><span class="cv-box cv-box-on"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-6"></path></svg></span></sc-if><sc-if value="{{r.off}}" hint-placeholder-val="{{ false }}"><span class="cv-box"></span></sc-if></sc-if><span style="font-weight: 700">{{r.title}}</span><sc-if value="{{r.hasBadge}}" hint-placeholder-val="{{ false }}"><span class="cv-badge">{{r.badge}}</span></sc-if><sc-if value="{{r.hasMand}}" hint-placeholder-val="{{ false }}"><span class="cv-mand">обязательный риск</span></sc-if></div><sc-if value="{{r.hasDesc}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; line-height: 1.4; color: #3F3638">{{r.desc}}</span></sc-if><sc-if value="{{r.hasNote}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; line-height: 1.35; color: #1F1A1B"><span style="color: #6E6366">Номер сервисной карты:</span> <b style="font-weight: 600">{{r.note}}</b></span></sc-if><sc-if value="{{r.hasRef}}" hint-placeholder-val="{{ true }}"><span style="font-size: 11px; line-height: 1.35; color: #A0172F; font-weight: 600">{{r.ref}}</span></sc-if></div>
+          <sc-if value="{{r.on}}" hint-placeholder-val="{{ true }}"><span role="cell">{{r.sum}}</span><span role="cell">{{r.type}}</span><span role="cell">{{r.fr}}</span><span role="cell" style="text-align: right; font-weight: 600; white-space: nowrap">{{r.prem}}</span></sc-if>
+          <sc-if value="{{r.off}}" hint-placeholder-val="{{ false }}"><span role="cell" style="grid-column: span 4; color: #8A7F81">Не застраховано</span></sc-if>
+        </div>
+    </sc-for>
+    </sc-if>
+    <sc-if value="{{noAdd}}" hint-placeholder-val="{{ false }}"><div style="padding: 8px 0; border-top: 1px solid #EFE2E5; font-size: 13px; color: #6E6366">Не застрахованы</div></sc-if>
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 10px 0 6px; margin-top: 2px; border-top: 1px solid #E4D6D9; font-size: 13px; line-height: 1.35">
+      <span style="font-weight: 600; color: #1F1A1B">ИТОГО страховая премия по Договору</span>
+      <span style="font-weight: 700; color: #1F1A1B; white-space: nowrap">{{total}}</span>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"v1": {"editor": "boolean", "default": true, "section": "7.1 Ущерб — варианты"}, "v2": {"editor": "boolean", "default": false, "section": "7.1 Ущерб — варианты"}, "v3": {"editor": "boolean", "default": true, "section": "7.1 Ущерб — варианты"}, "v4": {"editor": "boolean", "default": true, "section": "7.1 Ущерб — варианты"}, "v5": {"editor": "boolean", "default": false, "section": "7.1 Ущерб — варианты"}, "franchise": {"editor": "number", "default": 15000, "section": "7.1 Ущерб — варианты"}, "drone": {"editor": "boolean", "default": false, "section": "7.2 Опциональные"}, "ns": {"editor": "boolean", "default": true, "section": "7.2 Опциональные"}, "service": {"editor": "boolean", "default": true, "section": "7.2 Опциональные"}, "$preview": {"width": 1040, "height": 820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const f = (k, d) => (p[k] === undefined || p[k] === null || p[k] === '') ? d : (p[k] === true || p[k] === 'true');
+    const rub = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
+    const frN = Math.max(0, parseInt(p.franchise ?? 15000, 10) || 0);
+    const fr = frN ? rub(frN) : 'Не установлена';
+    const S = rub(2500000);
+    const T = 'Неагрегатная, неиндексируемая';
+    const base = { isVar: false, badge: '', desc: '', note: '', ref: '', mand: false, sum: S, type: T, fr: fr };
+    const mk = (o) => { const r = Object.assign({}, base, o); r.off = !r.on; r.prem = rub(r.n); r.hasBadge = !!r.badge; r.hasDesc = !!r.desc; r.hasNote = !!r.note; r.hasRef = !!r.ref; r.hasMand = !!r.mand; return r; };
+    const vars = [
+      { k: 'v1', d: true, title: 'Вариант 1. ДТП — вы потерпевший', desc: 'Авария по вине установленных третьих лиц, в том числе при обоюдной вине', ref: 'п. 8.1.1', n: 18000 },
+      { k: 'v2', d: false, title: 'Вариант 2. ДТП — вы виновник', desc: 'Авария по вине водителя, допущенного к управлению ТС', ref: 'п. 8.1.2', n: 14000 },
+      { k: 'v3', d: true, title: 'Вариант 3. Противоправные действия третьих лиц', desc: 'Машину поцарапали, разбили стекло, сняли детали', n: 7500 },
+      { k: 'v4', d: true, title: 'Вариант 4. Стихийное бедствие и падение предметов', desc: 'Град, ураган, наводнение, упало дерево, снег или лед', n: 6800 },
+      { k: 'v5', d: false, title: 'Вариант 5. Хищение', desc: 'Машину угнали или украли', n: 9500 }
+    ].map((x) => mk(Object.assign({}, x, { isVar: true, on: f(x.k, x.d) })));
+    const mand = [
+      mk({ on: true, mand: true, title: 'Техногенная авария', desc: 'Повреждение машины из-за аварии на инженерных сетях, промышленном объекте или в здании', n: 900 }),
+      mk({ on: true, mand: true, title: 'Полная гибель', desc: 'Машину нельзя восстановить или ремонт экономически нецелесообразен', ref: 'п. 2.18, 2.19 Правил страхования ТС', n: 4200 })
+    ];
+    const add = [];
+    if (f('drone', false)) add.push(mk({ on: true, title: 'Падение (воздействие) БПЛА', desc: 'Повреждение машины беспилотником или его обломками', n: 1500 }));
+    if (f('ns', true)) add.push(mk({ on: true, title: 'Несчастный случай (НС)', desc: 'Инвалидность или смерть водителя и пассажиров', ref: 'паушальная система', sum: rub(500000), type: 'Агрегатная, неиндексируемая', fr: 'Не установлена', n: 2000 }));
+    if (f('service', true)) add.push(mk({ on: true, title: 'Сервисные услуги', badge: '24/7', desc: 'Эвакуатор, аварийный комиссар, шиномонтаж, зарядка, доставка топлива', note: '7100 0001 2345', ref: 'Приложение № 1 «Сервисные услуги»', sum: 'по Прил. № 1 к Полису', type: 'Неагрегатная', fr: 'Не установлена', n: 6200 }));
+    const sum = (rows) => rows.filter((r) => r.on).reduce((s, r) => s + r.n, 0);
+    const mainN = sum(vars) + sum(mand), addN = sum(add);
+    return {
+      value: S, varRows: vars, mandRows: mand, addRows: add,
+      hasAdd: add.length > 0, noAdd: add.length === 0,
+      mainTotal: rub(mainN), addTotal: addN ? rub(addN) : '—', total: rub(mainN + addN)
+    };
+  }
+}
+</script>
+</body>
+</html>

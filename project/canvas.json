@@ -477,6 +477,12 @@
       "x": -440,
       "y": 514
     },
+    "Note-Example-Added.dc.html": {
+      "h": 120,
+      "w": 440,
+      "x": 7280,
+      "y": -5
+    },
     "Note-Holder-Partial.dc.html": {
       "h": 84,
       "title": "Сноска: в разделе 2 указаны не все данные Страхователя",
@@ -1162,7 +1168,8 @@
     "Note-Service-Rewritten.dc.html",
     "Note-Payment-Rewritten.dc.html",
     "Note-Settlement-Rewritten.dc.html",
-    "Note-Uts-Added.dc.html"
+    "Note-Uts-Added.dc.html",
+    "Note-Example-Added.dc.html"
   ],
   "pages": [
     {

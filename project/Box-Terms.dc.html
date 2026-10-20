@@ -43,7 +43,7 @@ body{margin:0}
     <div class="tm-tbl" role="table" aria-label="Условия покрытия ДТП">
       <div class="tm-tr tm-th" role="row"><span></span><span role="columnheader">Чья вина</span><span role="columnheader">Обоюдная вина</span><span role="columnheader">Условие</span></div>
       <sc-for list="{{dtpRows}}" as="r" hint-placeholder-count="9">
-        <div class="tm-tr" role="row"><span class="tm-rad"><sc-if value="{{r.on}}" hint-placeholder-val="{{ false }}"><span class="tm-dot"></span></sc-if></span><span role="cell">{{r.who}}</span><span role="cell">{{r.mutual}}</span><span role="cell">{{r.cond}}</span></div>
+        <div class="tm-tr" role="row" onClick="{{r.pick}}" style="cursor: pointer"><span class="tm-rad"><sc-if value="{{r.on}}" hint-placeholder-val="{{ false }}"><span class="tm-dot"></span></sc-if></span><span role="cell">{{r.who}}</span><span role="cell">{{r.mutual}}</span><span role="cell">{{r.cond}}</span></div>
       </sc-for>
     </div>
     <p class="tm-p tm-muted" style="font-size: 12px">«Третьи лица» включают пешеходов и лиц, управляющих велосипедами, самокатами и т. п. Виновником не может быть Страхователь, Выгодоприобретатель или лицо из <span class="tm-a">Раздела 6</span>.</p>
@@ -73,7 +73,7 @@ class Component extends DCLogic {
   renderVals() {
     const p = this.props;
     const b = (k, d) => (p[k] === undefined || p[k] === null || p[k] === '') ? d : (p[k] === true || p[k] === 'true');
-    const dtp = p.dtp || 'thirdParty';
+    const dtp = (this.state && this.state.dtp) || p.dtp || 'thirdParty';
     const texts = {
       thirdParty: 'Дорожно-транспортное происшествие, произошедшее по вине установленных третьих лиц, в том числе при обоюдной вине участников ДТП. К третьим лицам относятся в том числе пешеходы и лица, управляющие велосипедами, самокатами и аналогичными средствами передвижения.',
       ownDriver: 'Дорожно-транспортное происшествие, произошедшее в результате нарушения ПДД лицом, допущенным к управлению ТС (Раздел 6), за исключением случаев обоюдного нарушения ПДД с другими участниками ДТП.'
@@ -93,7 +93,7 @@ class Component extends DCLogic {
     if (b('drone', false)) lim.push('падение (воздействие) БПЛА');
     const ns = b('ns', true);
     return {
-      dtpShown: dtp !== 'standard' && !!texts[dtp],
+      dtpShown: (p.dtp || 'thirdParty') !== 'standard' && !!texts[p.dtp || 'thirdParty'],
       dtpText: texts[dtp] || '',
       dtpRows: [
         ['standard', 'любое лицо', '—', 'типовое: пп. «а» п. 3.2.1 Приложения № 1'],
@@ -105,7 +105,7 @@ class Component extends DCLogic {
         ['noOsagoNoMutual', 'установленный водитель другого ТС, столкновение', 'исключая', 'у виновного нет действующего ОСАГО'],
         ['ownDriver', 'лицо из Раздела 6', 'исключая', '—'],
         ['single', '—', '—', 'ДТП без участия иных ТС, кроме застрахованного']
-      ].map(([k, who, mutual, cond]) => ({ on: k === dtp, who, mutual, cond })),
+      ].map(([k, who, mutual, cond]) => ({ on: k === dtp, who, mutual, cond, pick: () => this.setState({ dtp: k }) })),
       ns: ns,
       nsShown: ns && b('nsDef', true),
       nsEvents: ev.join(', '),

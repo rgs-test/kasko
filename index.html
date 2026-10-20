@@ -37,12 +37,12 @@ body{font-family:'Golos Text',system-ui,sans-serif;color:var(--ink);background:v
   <nav id="nav"></nav>
 </aside>
 <main id="main"><div id="stage"></div></main>
-<script src="runtime.js"></script>
+<script src="runtime.js?v=20261021"></script>
 <script>
 (async function () {
   const nav = document.getElementById('nav');
   const stage = document.getElementById('stage');
-  const canvas = await (await fetch('project/canvas.json')).json();
+  const canvas = await (await fetch('project/canvas.json', { cache: 'no-cache' })).json();
   const DOCS = {
     'doc-kasko': { title: 'КАСКО — документ целиком', files: ['Main', 'Page2', 'Page3', 'Page4', 'Page5', 'Page6'] },
     'doc-box': { title: '«Коробка-конструктор» — документ целиком', files: ['Box-P1', 'Box-P2', 'Box-P3', 'Box-P4', 'Box-P5', 'Box-P6'] }

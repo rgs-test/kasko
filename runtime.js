@@ -19,7 +19,7 @@
 
   async function loadDef(name) {
     if (defs.has(name)) return defs.get(name);
-    const res = await fetch(BASE + encodeURIComponent(name) + '.dc.html');
+    const res = await fetch(BASE + encodeURIComponent(name) + '.dc.html', { cache: 'no-cache' });
     if (!res.ok) throw new Error('Не найден компонент ' + name);
     const doc = new DOMParser().parseFromString(await res.text(), 'text/html');
     const xdc = doc.querySelector('x-dc');

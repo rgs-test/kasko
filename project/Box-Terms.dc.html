@@ -38,7 +38,16 @@ body{margin:0}
   <h2 id="sec-terms" style="margin: 0; padding-bottom: 10px; border-bottom: 1px solid #E4D6D9; font-size: 20px; font-weight: 700; color: #1F1A1B">Термины</h2>
   <div class="tm-row"><div class="tm-term"><span class="tm-name">Страховой случай</span></div><div class="tm-body"><p class="tm-p">Совершившееся событие из числа рисков, застрахованных в <span class="tm-a">Разделе 7</span>, произошедшее в период страхования и на территории по <span class="tm-a">Разделу 12</span>, с наступлением которого возникает обязанность Страховщика произвести выплату.</p></div></div>
   <sc-if value="{{dtpShown}}" hint-placeholder-val="{{ true }}">
-  <div class="tm-row"><div class="tm-term"><span class="tm-name">ДТП</span><span class="tm-sub">дорожно-транспортное происшествие</span></div><div class="tm-body"><p class="tm-p">{{dtpText}}</p></div></div>
+  <div class="tm-row"><div class="tm-term"><span class="tm-name">ДТП</span><span class="tm-sub">дорожно-транспортное происшествие</span></div><div class="tm-body">
+    <p class="tm-p">8.1. Под ДТП по смыслу настоящего Полиса-оферты понимается событие, предусмотренное пп. «а» п. 3.2.1 Приложения № 1 к Правилам страхования ТС, при соблюдении условия, отмеченного ниже (отмечается одно):</p>
+    <div class="tm-tbl" role="table" aria-label="Условия покрытия ДТП">
+      <div class="tm-tr tm-th" role="row"><span></span><span role="columnheader">Чья вина</span><span role="columnheader">Обоюдная вина</span><span role="columnheader">Условие</span></div>
+      <sc-for list="{{dtpRows}}" as="r" hint-placeholder-count="2">
+        <div class="tm-tr" role="row"><span class="tm-rad"><sc-if value="{{r.on}}" hint-placeholder-val="{{ false }}"><span class="tm-dot"></span></sc-if></span><span role="cell">{{r.who}}</span><span role="cell">{{r.mutual}}</span><span role="cell">{{r.cond}}</span></div>
+      </sc-for>
+    </div>
+    <p class="tm-p tm-muted" style="font-size: 12px">«Третьи лица» включают пешеходов и лиц, управляющих велосипедами, самокатами и т. п. Виновником не может быть Страхователь, Выгодоприобретатель или лицо из <span class="tm-a">Раздела 6</span>.</p>
+  </div></div>
   </sc-if>
   <sc-if value="{{nsShown}}" hint-placeholder-val="{{ true }}">
   <div class="tm-row"><div class="tm-term"><span class="tm-name">Несчастный случай</span></div><div class="tm-body"><p class="tm-p">Внезапное, кратковременное, непредвиденное внешнее событие, произошедшее в период страхования независимо от воли Застрахованного лица, Страхователя или Выгодоприобретателя, характер, время и место которого могут быть однозначно определены, если это событие:</p><ul class="tm-ul"><li class="tm-li">произошло в результате застрахованного по Полису-оферте события: {{nsEvents}};</li><li class="tm-li">произошло, когда Застрахованное лицо находилось в ТС в качестве водителя или пассажира;</li><li class="tm-li">повлекло нарушение здоровья, трудоспособности или смерть Застрахованного лица.</li></ul></div></div>
@@ -57,8 +66,7 @@ body{margin:0}
   <div class="tm-row"><div class="tm-term"><span class="tm-name">Выгодоприобретатель</span></div><div class="tm-body"><p class="tm-p">Лицо, в пользу которого заключен Договор и которое получает страховую выплату; определяется по каждому риску в <span class="tm-a">Разделе 10</span>.</p></div></div>
   <div class="tm-row"><div class="tm-term"><span class="tm-name">ТС</span></div><div class="tm-body"><p class="tm-p">Транспортное средство, идентифицированное в <span class="tm-a">Разделе 4</span>.</p></div></div>
   <div class="tm-row" style="border-bottom: 0"><div class="tm-term"><span class="tm-name">Акцепт</span></div><div class="tm-body"><p class="tm-p">Уплата страховой премии в размере и в срок по <span class="tm-a">Разделу 8</span>; с этого момента Полис-оферта является заключенным Договором (ст. 438 ГК РФ).</p></div></div>
-  <p class="tm-p tm-muted" style="font-size: 12px">«Третьи лица» включают пешеходов и лиц, управляющих велосипедами, самокатами и т. п. Виновником не может быть Страхователь, Выгодоприобретатель или лицо из <span class="tm-a">Раздела 6</span>.</p>
-</section>
+  </section>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"dtp": {"editor": "enum", "options": ["standard", "thirdParty", "ownDriver"], "default": "thirdParty", "section": "ДТП"}, "nsDef": {"editor": "boolean", "default": true, "section": "Несчастный случай"}, "ns": {"editor": "boolean", "default": true, "section": "Несчастный случай"}, "v1": {"editor": "boolean", "default": true, "section": "Застрахованные риски"}, "v2": {"editor": "boolean", "default": false, "section": "Застрахованные риски"}, "v3": {"editor": "boolean", "default": true, "section": "Застрахованные риски"}, "v4": {"editor": "boolean", "default": true, "section": "Застрахованные риски"}, "v5": {"editor": "boolean", "default": false, "section": "Застрахованные риски"}, "drone": {"editor": "boolean", "default": false, "section": "Застрахованные риски"}, "$preview": {"width": 1040, "height": 1500}}'>
 class Component extends DCLogic {
@@ -87,6 +95,7 @@ class Component extends DCLogic {
     return {
       dtpShown: dtp !== 'standard' && !!texts[dtp],
       dtpText: texts[dtp] || '',
+      dtpRows: [['thirdParty', 'установленные третьи лица', 'включая', '—'], ['ownDriver', 'лицо из Раздела 6', 'исключая', '—']].map(([k, who, mutual, cond]) => ({ on: k === dtp, who, mutual, cond })),
       ns: ns,
       nsShown: ns && b('nsDef', true),
       nsEvents: ev.join(', '),

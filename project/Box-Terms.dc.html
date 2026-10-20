@@ -42,7 +42,7 @@ body{margin:0}
     <p class="tm-p">8.1. Под ДТП по смыслу настоящего Полиса-оферты понимается событие, предусмотренное пп. «а» п. 3.2.1 Приложения № 1 к Правилам страхования ТС, при соблюдении условия, отмеченного ниже (отмечается одно):</p>
     <div class="tm-tbl" role="table" aria-label="Условия покрытия ДТП">
       <div class="tm-tr tm-th" role="row"><span></span><span role="columnheader">Чья вина</span><span role="columnheader">Обоюдная вина</span><span role="columnheader">Условие</span></div>
-      <sc-for list="{{dtpRows}}" as="r" hint-placeholder-count="2">
+      <sc-for list="{{dtpRows}}" as="r" hint-placeholder-count="9">
         <div class="tm-tr" role="row"><span class="tm-rad"><sc-if value="{{r.on}}" hint-placeholder-val="{{ false }}"><span class="tm-dot"></span></sc-if></span><span role="cell">{{r.who}}</span><span role="cell">{{r.mutual}}</span><span role="cell">{{r.cond}}</span></div>
       </sc-for>
     </div>
@@ -95,7 +95,17 @@ class Component extends DCLogic {
     return {
       dtpShown: dtp !== 'standard' && !!texts[dtp],
       dtpText: texts[dtp] || '',
-      dtpRows: [['thirdParty', 'установленные третьи лица', 'включая', '—'], ['ownDriver', 'лицо из Раздела 6', 'исключая', '—']].map(([k, who, mutual, cond]) => ({ on: k === dtp, who, mutual, cond })),
+      dtpRows: [
+        ['standard', 'любое лицо', '—', 'типовое: пп. «а» п. 3.2.1 Приложения № 1'],
+        ['exclMutual', 'установленные третьи лица', 'исключая', '—'],
+        ['thirdParty', 'установленные третьи лица', 'включая', '—'],
+        ['osagoMutual', 'установленный водитель другого ТС, столкновение', 'включая', 'у виновных есть действующий ОСАГО'],
+        ['noOsagoMutual', 'установленный водитель другого ТС, столкновение', 'включая', 'у виновных нет действующего ОСАГО'],
+        ['osagoNoMutual', 'установленный водитель другого ТС, столкновение', 'исключая', 'у виновного есть действующий ОСАГО'],
+        ['noOsagoNoMutual', 'установленный водитель другого ТС, столкновение', 'исключая', 'у виновного нет действующего ОСАГО'],
+        ['ownDriver', 'лицо из Раздела 6', 'исключая', '—'],
+        ['single', '—', '—', 'ДТП без участия иных ТС, кроме застрахованного']
+      ].map(([k, who, mutual, cond]) => ({ on: k === dtp, who, mutual, cond })),
       ns: ns,
       nsShown: ns && b('nsDef', true),
       nsEvents: ev.join(', '),

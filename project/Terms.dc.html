@@ -44,7 +44,7 @@ body{margin:0}
     <div class="tm-tbl" role="table" aria-label="Условия покрытия ДТП">
       <div class="tm-tr tm-th" role="row"><span></span><span role="columnheader">Чья вина</span><span role="columnheader">Обоюдная вина</span><span role="columnheader">Условие</span></div>
       <sc-for list="{{dtpRows}}" as="r" hint-placeholder-count="9">
-        <div class="tm-tr" role="row"><span class="tm-rad"><sc-if value="{{r.on}}" hint-placeholder-val="{{ false }}"><span class="tm-dot"></span></sc-if></span><span role="cell">{{r.who}}</span><span role="cell">{{r.mutual}}</span><span role="cell">{{r.cond}}</span></div>
+        <div class="tm-tr" role="row" onClick="{{r.pick}}" style="cursor: pointer"><span class="tm-rad"><sc-if value="{{r.on}}" hint-placeholder-val="{{ false }}"><span class="tm-dot"></span></sc-if></span><span role="cell">{{r.who}}</span><span role="cell">{{r.mutual}}</span><span role="cell">{{r.cond}}</span></div>
       </sc-for>
     </div>
     <p class="tm-p tm-muted" style="font-size: 12px">«Третьи лица» включают пешеходов и лиц, управляющих велосипедами, самокатами и т. п. Виновником не может быть Страхователь, Выгодоприобретатель или лицо из <span class="tm-a">Раздела 7</span>.</p>
@@ -52,7 +52,7 @@ body{margin:0}
 
   <div class="tm-row"><div class="tm-term"><span class="tm-name">ПДТЛ</span><span class="tm-sub">противоправные действия третьих лиц</span></div><div class="tm-body">
     <sc-for list="{{pdtlRows}}" as="o" hint-placeholder-count="3">
-      <div class="tm-opt"><sc-if value="{{o.on}}" hint-placeholder-val="{{ false }}"><span class="tm-box tm-box-on"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-6"></path></svg></span></sc-if><sc-if value="{{o.off}}" hint-placeholder-val="{{ true }}"><span class="tm-box"></span></sc-if><span>{{o.t}}</span></div>
+      <div class="tm-opt" onClick="{{o.pick}}" style="cursor: pointer"><sc-if value="{{o.on}}" hint-placeholder-val="{{ false }}"><span class="tm-box tm-box-on"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-6"></path></svg></span></sc-if><sc-if value="{{o.off}}" hint-placeholder-val="{{ true }}"><span class="tm-box"></span></sc-if><span>{{o.t}}</span></div>
     </sc-for>
   </div></div>
 
@@ -61,7 +61,7 @@ body{margin:0}
     <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px; row-gap: 6px">
       <span class="tm-chip" style="background: #BF0D3E; color: #FFFFFF">Покрывается</span>
       <span class="tm-chip" style="border: 1.5px solid #6E6366; color: #2A2324">Не покрывается</span>
-      <div class="tm-opt"><sc-if value="{{theftDocs}}" hint-placeholder-val="{{ false }}"><span class="tm-box tm-box-on"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-6"></path></svg></span></sc-if><sc-if value="{{noTheftDocs}}" hint-placeholder-val="{{ true }}"><span class="tm-box"></span></sc-if><span>если отмечено — включая хищение ТС вместе с регистрационными документами</span></div>
+      <div class="tm-opt" onClick="{{toggleTheft}}" style="cursor: pointer"><sc-if value="{{theftDocs}}" hint-placeholder-val="{{ false }}"><span class="tm-box tm-box-on"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-6"></path></svg></span></sc-if><sc-if value="{{noTheftDocs}}" hint-placeholder-val="{{ true }}"><span class="tm-box"></span></sc-if><span>если отмечено — включая хищение ТС вместе с регистрационными документами</span></div>
       <span class="tm-p">события вне отмеченных подпунктов п. 3.2.2</span>
     </div>
   </div></div>
@@ -128,7 +128,8 @@ class Component extends DCLogic {
   renderVals() {
     const p = this.props;
     const b = (v, d) => (v === undefined || v === null || v === '') ? d : (v === true || v === 'true');
-    const dtp = p.dtp || 'standard';
+    const st = this.state || {};
+    const dtp = st.dtp || p.dtp || 'standard';
     const drv = 'установленный водитель другого ТС, столкновение';
     const opts = [
       ['standard', 'любое лицо', '—', 'типовое: пп. «а» п. 3.2.1 Приложения № 1'],
@@ -141,7 +142,7 @@ class Component extends DCLogic {
       ['ownDriver', 'лицо из Раздела 7', 'исключая', '—'],
       ['single', '—', '—', 'ДТП без участия иных ТС, кроме застрахованного']
     ];
-    const pd = p.pdtl || 'standard';
+    const pd = st.pdtl || p.pdtl || 'standard';
     const pdtl = [
       ['standard', 'типовое — пп. «е» п. 3.2.1 Приложения № 1 к Правилам страхования ТС;'],
       ['established', 'внешнее воздействие установленных третьих лиц, связанное с уничтожением, повреждением или хищением отдельных частей (деталей, принадлежностей) ТС;'],
@@ -156,12 +157,12 @@ class Component extends DCLogic {
     if (b(p.untilFirst, false)) lim.push('Договор заключен на условиях «До первого страхового случая» в соответствии с п. 4.2 Правил страхования ТС.');
     if (b(p.perCase, false)) lim.push('Лимит возмещения по одному страховому случаю по риску ' + (p.perCaseRisks || '«Ущерб»') + ' — ' + (p.perCaseSum || '500 000') + ' ₽.');
     if (b(p.totalLimit, false)) lim.push('Лимит возмещения по всем страховым случаям по Договору — ' + (p.totalSum || '1 500 000') + ' ₽.');
-    const td = b(p.theftDocs, false);
+    const td = st.theftDocs !== undefined ? st.theftDocs : b(p.theftDocs, false);
     return {
-      dtpRows: opts.map(([k, who, mutual, cond]) => ({ on: k === dtp, who, mutual, cond })),
-      pdtlRows: pdtl.map(([k, t]) => ({ on: k === pd, off: k !== pd, t })),
+      dtpRows: opts.map(([k, who, mutual, cond]) => ({ on: k === dtp, who, mutual, cond, pick: () => this.setState({ dtp: k }) })),
+      pdtlRows: pdtl.map(([k, t]) => ({ on: k === pd, off: k !== pd, t, pick: () => this.setState({ pdtl: k }) })),
       theftSub: p.theftSub || '«а»–«г»',
-      theftDocs: td, noTheftDocs: !td,
+      theftDocs: td, noTheftDocs: !td, toggleTheft: () => this.setState({ theftDocs: !td }),
       nsSub: p.nsSub || '«а»–«з»',
       frList: fr.map((t) => ({ t })), hasFr: fr.length > 0,
       limList: lim.map((t) => ({ t })), hasLim: lim.length > 0

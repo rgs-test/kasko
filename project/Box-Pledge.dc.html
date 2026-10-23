@@ -14,6 +14,7 @@ body{margin:0}
 input[type=checkbox]{-webkit-appearance:none;appearance:none;box-sizing:border-box;flex:none;border:1.5px solid #8C7F78;border-radius:4px;background:#FFFFFF;display:inline-grid;place-content:center}
 input[type=checkbox]:checked{background:#BF0D3E;border-color:#BF0D3E}
 input[type=checkbox]:checked::after{content:'';width:4px;height:8px;margin-top:-2px;border:solid #FFFFFF;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.tx-tech{box-sizing:border-box;margin:0;padding:8px 12px;border:1px dashed #A483DC;border-radius:8px;background:#F1EAFC;color:#44278A;font-size:11px;line-height:1.5;font-weight:700;letter-spacing:.2px}
 </style>
 </helmet>
 <section aria-labelledby="sec-pledge" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
@@ -24,12 +25,13 @@ input[type=checkbox]:checked::after{content:'';width:4px;height:8px;margin-top:-
   <div role="group" aria-label="Залог ТС" style="box-sizing: border-box; width: 100%; padding: 2px 14px; border: 1px solid #ECE4DE; border-radius: 12px; background: #F8F5F2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; font-size: 13px; color: #2A1F22; white-space: nowrap">
     <label style="display: flex; align-items: center; gap: 7px; min-height: 28px; cursor: pointer"><input type="checkbox" checked="{{isFree}}" onChange="{{pickFree}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">ТС не является предметом залога</label><label style="display: flex; align-items: center; gap: 7px; min-height: 28px; cursor: pointer"><input type="checkbox" checked="{{isPledged}}" onChange="{{pickPledged}}" style="width: 16px; height: 16px; margin: 0; accent-color: #BF0D3E; cursor: pointer">ТС в залоге у банка</label>
   </div>
+  <p class="tx-tech">Тех. текст: указывается один из вариантов: «Застрахованное ТС не является предметом залога» или банк — «Залогодержатель: ____________». Если выбран конкретный банк, к строке может добавляться пояснительный текст (до 3 предложений) — вариант показан ниже.</p>
   <sc-if value="{{isPledged}}" hint-placeholder-val="{{ false }}">
     <div style="display: flex; flex-wrap: wrap; column-gap: 40px; row-gap: 10px; padding: 4px 0 4px 12px; box-shadow: inset 3px 0 0 #BF0D3E"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 11px; line-height: 1.3; color: #6E5A5F">Залогодержатель</span><span style="font-size: 14px; line-height: 1.35; font-weight: 600; color: #2A1F22">{{bank}}</span></div></div>
   </sc-if>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"pledged":{"editor":"boolean","default":false,"section":"Залог"},"bank":{"editor":"text","default":"ПАО «Банк Пример»","section":"Залог"},"$preview":{"width":1040,"height":90}}'>
+<script type="text/x-dc" data-dc-script data-props='{"pledged":{"editor":"boolean","default":false,"section":"Залог"},"bank":{"editor":"text","default":"ПАО «Банк Пример»","section":"Залог"},"$preview":{"width":1040,"height":150}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&amp;display=swap">
 <style>
 body{margin:0}
+.tx-tech{box-sizing:border-box;margin:0;padding:8px 12px;border:1px dashed #A483DC;border-radius:8px;background:#F1EAFC;color:#44278A;font-size:11px;line-height:1.5;font-weight:700;letter-spacing:.2px}
 </style>
 </helmet>
 <section aria-labelledby="sec-term-end" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 12px">
@@ -18,12 +19,14 @@ body{margin:0}
     <span style="width: 28px; height: 28px; border-radius: 8px; background: #BF0D3E; color: #FFFFFF; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{num}}</span>
     <h2 id="sec-term-end" style="margin: 0; font-size: 20px; font-weight: 700; color: #1F1A1B">Прекращение действия договора страхования (Полиса-оферты)</h2>
   </div>
+  <p class="tx-tech">Тех. текст: пункты 13.3, 13.5, 13.6 отображаются в зависимости от условий продажи (кредит / в обеспечение кредита / риск НС); условия применения — в пометках у пунктов и на страницах-вариантах.</p>
   <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
     <sc-for list="{{items}}" as="it" hint-placeholder-count="8">
-      <li style="display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 8px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid #EFE2E5">
+      <sc-if value="{{it.isTech}}" hint-placeholder-val="{{ false }}"><li style="list-style: none; padding: 9px 0"><p class="tx-tech">{{it.tech}}</p></li></sc-if>
+      <sc-if value="{{it.isItem}}" hint-placeholder-val="{{ true }}"><li style="display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 8px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid #EFE2E5">
         <span style="font-size: 13px; font-weight: 700; color: #BF0D3E">{{it.num}}</span>
         <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #4A4244; font-family: Arial, sans-serif">{{it.text}}</p>
-      </li>
+      </li></sc-if>
     </sc-for>
   </ol>
 </section>
@@ -46,8 +49,14 @@ class Component extends DCLogic {
     if (credit && ns) t.push('Страхователь вправе отказаться от страхования по риску «Несчастный случай» в течение 14 (четырнадцати) календарных дней со дня заключения Договора страхования. В этом случае страховая премия по данному риску возвращается в полном объеме в течение 7 (семи) рабочих дней со дня получения Страховщиком письменного заявления об отказе.');
     const last = N + '.' + t.length;
     t.push('При отказе Страхователя от Договора страхования в иных случаях, чем указано в пп. ' + N + '.2 – ' + last + ' настоящего Полиса-оферты, страховая премия возврату не подлежит.');
-    t.push('Заявление об отказе от Договора страхования подается Страхователем лично в офисе Страховщика, направляется почтой по адресу, указанному на сайте Страховщика, или в дирекцию филиала Страховщика. Датой отказа считается дата подачи заявления, а при направлении через АО «Почта России» — дата почтового штемпеля.');
-    return { num: N, items: t.map((x, i) => ({ num: N + '.' + (i + 1) + '.', text: x })) };
+    if (credit) t.push('Заявление об отказе от Договора страхования подается Страхователем лично в офисе Страховщика, направляется почтой по адресу, указанному на сайте Страховщика, или в дирекцию филиала Страховщика. Датой отказа считается дата подачи заявления, а при направлении через АО «Почта России» — дата почтового штемпеля.');
+    else t.push('Заявление об отказе от Договора страхования (Полиса-оферты) может быть предоставлено путем вручения Страховщику (при обращении в офис Страховщика), либо путем его отправки через организацию почтовой связи по адресу, указанному на сайте Страховщика www.rgs.ru по почте: 119991, г. Москва — 59, ГСП-1, ул. Киевская, д. 7, либо в Дирекцию Филиала Страховщика по месту заключения Договора страхования (Полиса-оферты). Датой отказа от Договора страхования (Полиса-оферты) считается дата подачи Страховщику Страхователем, либо его уполномоченным представителем письменного заявления об отказе от Договора страхования (Полиса-оферты). Если указанное заявление направляется по Почте России, датой отказа от Договора страхования (Полиса-оферты) считается дата, указанная в почтовом штемпеле организации почтовой связи по месту отправления данного заявления.');
+    const tech = {};
+    if (!credit) {
+      tech[3] = 'Тех. текст: в п. 13.3 дополнить ссылкой на Указание Банка России от 17.05.2022 № 6139-У, если застрахован риск НС/ДМС и полис продается при кредите / в обеспечение кредита.';
+      tech[5] = 'Тех. текст: при кредите добавляются п. 13.5 (вариант 1: договор в обеспечение кредита; вариант 2: НС как дополнительная услуга) и п. 13.6; в п. «иные случаи» перечисляются пункты 13.2 – 13.4 / 13.5 / 13.6 — см. варианты.';
+    }
+    return { num: N, items: t.map((x, i) => ({ num: N + '.' + (i + 1) + '.', text: x, isItem: true, isTech: false, tech: '' })).reduce((a, it, i) => { if (tech[i]) a.push({ num: '', text: '', isItem: false, isTech: true, tech: tech[i] }); a.push(it); return a; }, []) };
   }
 }
 </script>

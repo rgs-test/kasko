@@ -19,6 +19,7 @@ body{margin:0}
 .si-pill{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:#FFFFFF;border:1px solid #DCE3EC;font-size:13px;font-weight:700;color:#1F1A1B}
 .si-sub{margin:0;padding-bottom:8px;border-bottom:1px solid #EFE2E5;font-size:17px;line-height:1.3;font-weight:700;color:#1F1A1B}
 .si-li{margin:0;font-size:13px;line-height:1.5;color:#3F3638}
+.tx-tech{box-sizing:border-box;margin:0;padding:8px 12px;border:1px dashed #A483DC;border-radius:8px;background:#F1EAFC;color:#44278A;font-size:11px;line-height:1.5;font-weight:700;letter-spacing:.2px}
 </style>
 </helmet>
 <section aria-label="Сервисная информация" style="width: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Golos Text', system-ui, sans-serif; color: #1F1A1B; display: flex; flex-direction: column; gap: 14px">
@@ -52,30 +53,44 @@ body{margin:0}
   <h3 class="si-sub" style="margin-top: 6px">Если вы передумали</h3>
   <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: stretch">
     <div class="si-card">
-      <div style="display: flex; align-items: center; gap: 10px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BF0D3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2 2M9 2h6"></path></svg><p class="si-h">В первые {{days}} дней</p></div>
-      <p class="si-p">Вы можете отказаться от полиса в течение {{daysText}} с момента его оформления и вернуть деньги.</p>
+      <div style="display: flex; align-items: center; gap: 10px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BF0D3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2 2M9 2h6"></path></svg><p class="si-h">В первые {{daysTitle}} дней</p></div>
+      <p class="si-p">{{cancelLead}}</p>
       <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px">
         <li class="si-li"><b style="color: #1F1A1B">Если полис еще не начал действовать:</b> мы вернем вам 100% стоимости страховки</li>
-        <li class="si-li"><b style="color: #1F1A1B">Если полис уже действует:</b> мы удержим только небольшую сумму за те несколько дней, что машина была под нашей защитой</li>
+        <li class="si-li"><b style="color: #1F1A1B">Если полис уже действует:</b> {{partial}}</li>
         <li class="si-li"><b style="color: #1F1A1B">Важное условие:</b> за эти дни не должно быть заявленных страховых случаев</li>
       </ul>
+      <sc-if value="{{box}}" hint-placeholder-val="{{ false }}"><p class="tx-tech">Тех. текст: «14» — если ТС не в залоге; «30» — если ТС в залоге у банка / полис продается при кредите (раздел 11). Подставляется в заголовок и в текст блока.</p></sc-if>
     </div>
     <div class="si-card">
       <div style="display: flex; align-items: center; gap: 10px"><svg aria-hidden="true" width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="#BF0D3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5h11l4 5v4h-2M3 13v4h2M3 13h17"></path><circle cx="7.5" cy="17.5" r="1.8"></circle><circle cx="16.5" cy="17.5" r="1.8"></circle></svg><p class="si-h">В любой другой момент</p></div>
-      <p class="si-p">Вы имеете право расторгнуть договор абсолютно в любой день, когда пожелаете.</p>
+      <p class="si-p">{{otherLead}}</p>
       <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px">
-        <li class="si-li"><b style="color: #1F1A1B">Как рассчитывается возврат:</b> если вы продали машину или страховой риск перестал существовать, мы вернем вам деньги строго за все оставшиеся дни до конца действия полиса</li>
-        <li class="si-li"><b style="color: #1F1A1B">Важное условие:</b> если вы решите закрыть полис без резонных причин, страховая премия по договору возврату не подлежит</li>
+        <li class="si-li"><b style="color: #1F1A1B">Как рассчитывается возврат:</b> {{calc}}</li>
+        <li class="si-li"><b style="color: #1F1A1B">Важное условие:</b> {{cond}}</li>
       </ul>
     </div>
   </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"days":{"editor":"enum","options":["14","30"],"default":"14","section":"Отказ от полиса"},"$preview":{"width":1040,"height":560}}'>
+<script type="text/x-dc" data-dc-script data-props='{"days":{"editor":"enum","options":["14","30"],"default":"14","section":"Отказ от полиса"},"box":{"editor":"boolean","default":false,"section":"Коробка"},"$preview":{"width":1040,"height":560}}'>
 class Component extends DCLogic {
   renderVals() {
     const d = this.props.days === '30' || this.props.days === 30 ? 30 : 14;
-    return { days: String(d), daysText: d === 30 ? '30 календарных дней' : 'двух недель' };
+    const bx = this.props.box === true || this.props.box === 'true';
+    if (bx) {
+      return { box: true, daysTitle: '{14 | 30}',
+        cancelLead: 'Вы можете отказаться от полиса в течение {14 | 30} дней с момента заключения договора и вернуть деньги (раздел 13).',
+        partial: 'мы удержим часть премии пропорционально времени, в течение которого действовало страхование',
+        otherLead: 'В иных случаях договор может быть прекращен досрочно только по основаниям, указанным в разделе 13.',
+        calc: 'если после вступления договора в силу возможность наступления страхового случая отпала и страховой риск прекратился по обстоятельствам иным, чем страховой случай, мы вернем часть премии пропорционально времени, оставшемуся до окончания срока страхования, за вычетом расходов на ведение дела (РВД), при отсутствии заявленных событий',
+        cond: 'в иных случаях, чем указано в разделе 13, страховая премия возврату не подлежит' };
+    }
+    return { box: false, daysTitle: String(d), cancelLead: 'Вы можете отказаться от полиса в течение ' + (d === 30 ? '30 календарных дней' : 'двух недель') + ' с момента его оформления и вернуть деньги.',
+      partial: 'мы удержим только небольшую сумму за те несколько дней, что машина была под нашей защитой',
+      otherLead: 'Вы имеете право расторгнуть договор абсолютно в любой день, когда пожелаете.',
+      calc: 'если вы продали машину или страховой риск перестал существовать, мы вернем вам деньги строго за все оставшиеся дни до конца действия полиса',
+      cond: 'если вы решите закрыть полис без резонных причин, страховая премия по договору возврату не подлежит' };
   }
 }
 </script>

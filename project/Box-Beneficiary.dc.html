@@ -110,7 +110,7 @@ class Component extends DCLogic {
     const isForeign = !isLegal && c === 'foreign';
     const all = [
       { on: this.flag(this.props.riskService, true), name: 'По риску «Сервисные услуги»:', text: 'Страхователь, Собственник ТС или водитель' },
-      { on: this.flag(this.props.riskNs, true), name: 'По рискам «Несчастный случай»:', text: 'Застрахованные лица, а в случае их смерти — наследники. Застрахованными лицами являются водитель и пассажиры, находящиеся в ТС в момент страхового случая (паушальная система)' }
+      { on: this.flag(this.props.riskNs, true), name: 'По риску «Несчастный случай»:', text: 'Застрахованные лица, а в случае их смерти — наследники. Застрахованными лицами являются водитель и пассажиры, находящиеся в ТС в момент страхового случая (паушальная система)' }
     ];
     const risks = all.filter((x) => x.on).map((x, i) => ({ title: '10.' + (i + 2) + '. ' + x.name, text: x.text }));
     const setWho = (x) => () => this.setState({ who: x });
